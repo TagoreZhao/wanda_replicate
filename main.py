@@ -17,14 +17,12 @@ def get_llm(model_name, cache_dir="llm_weights"):
     model = AutoModelForCausalLM.from_pretrained(
         model_name, 
         torch_dtype=torch.float16, 
-        cache_dir=cache_dir, 
+        cache_dir=cache_dir,  # Use the specified cache directory
         low_cpu_mem_usage=True, 
         device_map="auto",
-        use_auth_token=True,
-        force_download=True
+        use_auth_token=True
     )
-
-    model.seqlen = model.config.max_position_embeddings 
+    model.seqlen = model.config.max_position_embeddings
     return model
 
 def main():
