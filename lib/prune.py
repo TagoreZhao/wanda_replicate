@@ -55,57 +55,18 @@ def check_sparsity(model):
     model.config.use_cache = use_cache 
     return float(count)/total_params 
 
-# def prepare_calibration_input(model, dataloader, device):
-#     use_cache = model.config.use_cache
-#     model.config.use_cache = False
-#     layers = model.model.layers
-
-#     # dev = model.hf_device_map["model.embed_tokens"]
-#     if "model.embed_tokens" in model.hf_device_map:
-#         device = model.hf_device_map["model.embed_tokens"]
-
-#     dtype = next(iter(model.parameters())).dtype
-#     inps = torch.zeros((128, model.seqlen, model.config.hidden_size), dtype=dtype, device=device)
-#     inps.requires_grad = False
-#     cache = {'i': 0, 'attention_mask': None, "position_ids": None}
-
-#     class Catcher(nn.Module):
-#         def __init__(self, module):
-#             super().__init__()
-#             self.module = module
-#         def forward(self, inp, **kwargs):
-#             inps[cache['i']] = inp
-#             cache['i'] += 1
-#             cache['attention_mask'] = kwargs['attention_mask']
-#             cache['position_ids'] = kwargs['position_ids']
-#             raise ValueError
-#     layers[0] = Catcher(layers[0])
-#     for batch in dataloader:
-#         try:
-#             model(batch[0].to(device))
-#         except ValueError:
-#             pass 
-#     layers[0] = layers[0].module
-
-#     outs = torch.zeros_like(inps)
-#     attention_mask = cache['attention_mask']
-#     position_ids = cache['position_ids']
-#     model.config.use_cache = use_cache
-
-#     return inps, outs, attention_mask, position_ids 
-
 def prepare_calibration_input(model, dataloader, device):
     use_cache = model.config.use_cache
     model.config.use_cache = False
     layers = model.model.layers
 
-    # Set the appropriate device if "embed_tokens" is mapped
+    # dev = model.hf_device_map["model.embed_tokens"]
     if "model.embed_tokens" in model.hf_device_map:
         device = model.hf_device_map["model.embed_tokens"]
 
     dtype = next(iter(model.parameters())).dtype
-    inps_cpu = torch.zeros((128, model.seqlen, model.config.hidden_size), dtype=dtype, device="cpu")
-    outs_cpu = torch.zeros((128, model.seqlen, model.config.hidden_size), dtype=dtype, device="cpu")
+    inps = torch.zeros((128, model.seqlen, model.config.hidden_size), dtype=dtype, device=device)
+    inps.requires_grad = False
     cache = {'i': 0, 'attention_mask': None, "position_ids": None}
 
     class Catcher(nn.Module):
@@ -113,29 +74,69 @@ def prepare_calibration_input(model, dataloader, device):
             super().__init__()
             self.module = module
         def forward(self, inp, **kwargs):
-            inps_cpu[cache['i']] = inp.cpu()  # Store on CPU to save GPU memory
+            inps[cache['i']] = inp
             cache['i'] += 1
-            cache['attention_mask'] = kwargs['attention_mask'].cpu()
-            cache['position_ids'] = kwargs['position_ids'].cpu()
+            cache['attention_mask'] = kwargs['attention_mask']
+            cache['position_ids'] = kwargs['position_ids']
             raise ValueError
-
-    # Wrap the first layer to intercept input/output
     layers[0] = Catcher(layers[0])
-
     for batch in dataloader:
         try:
-            batch_gpu = batch[0].to(device)
-            model(batch_gpu)
+            model(batch[0].to(device))
         except ValueError:
-            pass
-        torch.cuda.empty_cache()  # Clear GPU cache after each batch
-
-    # Restore the original model layer
+            pass 
     layers[0] = layers[0].module
+
+    outs = torch.zeros_like(inps)
+    attention_mask = cache['attention_mask']
+    position_ids = cache['position_ids']
     model.config.use_cache = use_cache
 
-    # Move only necessary data to GPU in a batched manner later in the pipeline
-    return inps_cpu, outs_cpu, cache['attention_mask'], cache['position_ids']
+    return inps, outs, attention_mask, position_ids 
+
+# Optimized by moving all data to CPU, Only move to GPU when needed
+# def prepare_calibration_input(model, dataloader, device):
+#     use_cache = model.config.use_cache
+#     model.config.use_cache = False
+#     layers = model.model.layers
+
+#     # Set the appropriate device if "embed_tokens" is mapped
+#     if "model.embed_tokens" in model.hf_device_map:
+#         device = model.hf_device_map["model.embed_tokens"]
+
+#     dtype = next(iter(model.parameters())).dtype
+#     inps_cpu = torch.zeros((128, model.seqlen, model.config.hidden_size), dtype=dtype, device="cpu")
+#     outs_cpu = torch.zeros((128, model.seqlen, model.config.hidden_size), dtype=dtype, device="cpu")
+#     cache = {'i': 0, 'attention_mask': None, "position_ids": None}
+
+#     class Catcher(nn.Module):
+#         def __init__(self, module):
+#             super().__init__()
+#             self.module = module
+#         def forward(self, inp, **kwargs):
+#             inps_cpu[cache['i']] = inp.cpu()  # Store on CPU to save GPU memory
+#             cache['i'] += 1
+#             cache['attention_mask'] = kwargs['attention_mask'].cpu()
+#             cache['position_ids'] = kwargs['position_ids'].cpu()
+#             raise ValueError
+
+#     # Wrap the first layer to intercept input/output
+#     layers[0] = Catcher(layers[0])
+
+#     for batch in dataloader:
+#         try:
+#             batch_gpu = batch[0].to(device)
+#             model(batch_gpu)
+#         except ValueError:
+#             pass
+#         torch.cuda.empty_cache()  # Clear GPU cache after each batch
+
+#     # Restore the original model layer
+#     layers[0] = layers[0].module
+#     model.config.use_cache = use_cache
+
+#     # Move only necessary data to GPU in a batched manner later in the pipeline
+#     return inps_cpu, outs_cpu, cache['attention_mask'], cache['position_ids']
 
 
 def return_given_alpha(alpha, sort_res, W_metric, tmp_metric, sum_before):
@@ -168,185 +169,186 @@ def prune_magnitude(args, model, tokenizer, device=torch.device("cuda:0"), prune
 
             W[W_mask] = 0
 
-# def prune_wanda(args, model, tokenizer, device=torch.device("cuda:0"), prune_n=0, prune_m=0):
-#     use_cache = model.config.use_cache 
-#     model.config.use_cache = False 
-
-#     print("loading calibdation data")
-#     dataloader, _ = get_loaders("c4",nsamples=args.nsamples,seed=args.seed,seqlen=model.seqlen,tokenizer=tokenizer)
-#     print("dataset loading complete")
-#     with torch.no_grad():
-#         inps, outs, attention_mask, position_ids = prepare_calibration_input(model, dataloader, device)
-
-#     layers = model.model.layers
-#     for i in range(len(layers)):
-#         layer = layers[i]
-#         subset = find_layers(layer)
-
-#         if f"model.layers.{i}" in model.hf_device_map:   ## handle the case for llama-30B and llama-65B, when the device map has multiple GPUs;
-#             dev = model.hf_device_map[f"model.layers.{i}"]
-#             inps, outs, attention_mask, position_ids = inps.to(dev), outs.to(dev), attention_mask.to(dev), position_ids.to(dev)
-
-#         wrapped_layers = {}
-#         for name in subset:
-#             wrapped_layers[name] = WrappedGPT(subset[name])
-
-#         def add_batch(name):
-#             def tmp(_, inp, out):
-#                 wrapped_layers[name].add_batch(inp[0].data, out.data)
-#             return tmp
-
-#         handles = []
-#         for name in wrapped_layers:
-#             handles.append(subset[name].register_forward_hook(add_batch(name)))
-#         for j in range(args.nsamples):
-#             with torch.no_grad():
-#                 outs[j] = layer(inps[j].unsqueeze(0), attention_mask=attention_mask, position_ids=position_ids)[0]
-#         for h in handles:
-#             h.remove()
-
-#         for name in subset:
-#             print(f"pruning layer {i} name {name}")
-#             W_metric = torch.abs(subset[name].weight.data) * torch.sqrt(wrapped_layers[name].scaler_row.reshape((1,-1)))
-
-#             W_mask = (torch.zeros_like(W_metric) == 1)  ## initialize a mask to be all False
-#             if prune_n != 0:
-#                 # structured n:m sparsity
-#                 for ii in range(W_metric.shape[1]):
-#                     if ii % prune_m == 0:
-#                         tmp = W_metric[:,ii:(ii+prune_m)].float()
-#                         W_mask.scatter_(1,ii+torch.topk(tmp, prune_n,dim=1, largest=False)[1], True)
-#             else:
-#                 sort_res = torch.sort(W_metric, dim=-1, stable=True)
-
-#                 if args.use_variant:
-#                     # wanda variant 
-#                     tmp_metric = torch.cumsum(sort_res[0], dim=1)
-#                     sum_before = W_metric.sum(dim=1)
-
-#                     alpha = 0.4
-#                     alpha_hist = [0., 0.8]
-#                     W_mask, cur_sparsity = return_given_alpha(alpha, sort_res, W_metric, tmp_metric, sum_before)
-#                     while (torch.abs(cur_sparsity - args.sparsity_ratio)>0.001) and (alpha_hist[1]-alpha_hist[0]>=0.001):
-#                         if cur_sparsity > args.sparsity_ratio:
-#                             alpha_new = (alpha + alpha_hist[0]) / 2.0
-#                             alpha_hist[1] = alpha
-#                         else:
-#                             alpha_new = (alpha + alpha_hist[1]) / 2.0
-#                             alpha_hist[0] = alpha
-
-#                         alpha = alpha_new 
-#                         W_mask, cur_sparsity = return_given_alpha(alpha, sort_res, W_metric, tmp_metric, sum_before)
-#                     print(f"alpha found {alpha} sparsity {cur_sparsity:.6f}")
-#                 else:
-#                     # unstructured pruning
-#                     indices = sort_res[1][:,:int(W_metric.shape[1]*args.sparsity_ratio)]
-#                     W_mask.scatter_(1, indices, True)
-
-#             subset[name].weight.data[W_mask] = 0  ## set weights to zero 
-
-#         for j in range(args.nsamples):
-#             with torch.no_grad():
-#                 outs[j] = layer(inps[j].unsqueeze(0), attention_mask=attention_mask, position_ids=position_ids)[0]
-#         inps, outs = outs, inps
-
-#     model.config.use_cache = use_cache 
-#     torch.cuda.empty_cache()
-
 def prune_wanda(args, model, tokenizer, device=torch.device("cuda:0"), prune_n=0, prune_m=0):
-    use_cache = model.config.use_cache
-    model.config.use_cache = False
+    use_cache = model.config.use_cache 
+    model.config.use_cache = False 
 
-    print("loading calibration data")
-    dataloader, _ = get_loaders("c4", nsamples=args.nsamples, seed=args.seed, seqlen=model.seqlen, tokenizer=tokenizer)
+    print("loading calibdation data")
+    dataloader, _ = get_loaders("c4",nsamples=args.nsamples,seed=args.seed,seqlen=model.seqlen,tokenizer=tokenizer)
     print("dataset loading complete")
-
-    # Prepare calibration data on CPU, only moving to GPU when required
-    inps_cpu, outs_cpu, attention_mask_cpu, position_ids_cpu = prepare_calibration_input(model, dataloader, "cpu")
+    with torch.no_grad():
+        inps, outs, attention_mask, position_ids = prepare_calibration_input(model, dataloader, device)
 
     layers = model.model.layers
-    for i, layer in enumerate(layers):
+    for i in range(len(layers)):
+        layer = layers[i]
         subset = find_layers(layer)
 
-        # Determine device for the current layer
-        dev = model.hf_device_map.get(f"model.layers.{i}", device)
-
-        # Move only required data to GPU for this specific layer
-        inps = inps_cpu.to(dev, non_blocking=True)
-        outs = outs_cpu.to(dev, non_blocking=True)
-        attention_mask = attention_mask_cpu.to(dev, non_blocking=True)
-        position_ids = position_ids_cpu.to(dev, non_blocking=True)
+        if f"model.layers.{i}" in model.hf_device_map:   ## handle the case for llama-30B and llama-65B, when the device map has multiple GPUs;
+            dev = model.hf_device_map[f"model.layers.{i}"]
+            inps, outs, attention_mask, position_ids = inps.to(dev), outs.to(dev), attention_mask.to(dev), position_ids.to(dev)
 
         wrapped_layers = {}
         for name in subset:
             wrapped_layers[name] = WrappedGPT(subset[name])
 
-        # Capture intermediate activations on CPU
         def add_batch(name):
             def tmp(_, inp, out):
-                wrapped_layers[name].add_batch(inp[0].data.cpu(), out.data.cpu())  # Store activations on CPU
+                wrapped_layers[name].add_batch(inp[0].data, out.data)
             return tmp
 
-        # Register forward hooks for capturing activations
-        handles = [subset[name].register_forward_hook(add_batch(name)) for name in wrapped_layers]
-
-        # Iterate over each sample, one by one, to reduce memory load
+        handles = []
+        for name in wrapped_layers:
+            handles.append(subset[name].register_forward_hook(add_batch(name)))
         for j in range(args.nsamples):
             with torch.no_grad():
-                # Move each sample to GPU only when needed
-                inps_j = inps[j].unsqueeze(0).to(dev, non_blocking=True)
-                outs[j] = layer(inps_j, attention_mask=attention_mask, position_ids=position_ids)[0]
-
-        # Remove hooks to free up memory
+                outs[j] = layer(inps[j].unsqueeze(0), attention_mask=attention_mask, position_ids=position_ids)[0]
         for h in handles:
             h.remove()
 
-        # Apply pruning based on calculated metrics
         for name in subset:
             print(f"pruning layer {i} name {name}")
-            # Compute W_metric on CPU to avoid GPU memory overload
-            W_metric = torch.abs(subset[name].weight.data.cpu()) * torch.sqrt(wrapped_layers[name].scaler_row.reshape((1, -1)).cpu())
-            W_mask = torch.zeros_like(W_metric, dtype=torch.bool)  # Initialize mask as all False
+            W_metric = torch.abs(subset[name].weight.data) * torch.sqrt(wrapped_layers[name].scaler_row.reshape((1,-1)))
 
-            # Structured n:m sparsity
+            W_mask = (torch.zeros_like(W_metric) == 1)  ## initialize a mask to be all False
             if prune_n != 0:
+                # structured n:m sparsity
                 for ii in range(W_metric.shape[1]):
                     if ii % prune_m == 0:
-                        tmp = W_metric[:, ii:(ii + prune_m)].float()
-                        W_mask.scatter_(1, ii + torch.topk(tmp, prune_n, dim=1, largest=False)[1], True)
+                        tmp = W_metric[:,ii:(ii+prune_m)].float()
+                        W_mask.scatter_(1,ii+torch.topk(tmp, prune_n,dim=1, largest=False)[1], True)
             else:
-                # Unstructured pruning with wanda variant
                 sort_res = torch.sort(W_metric, dim=-1, stable=True)
+
                 if args.use_variant:
+                    # wanda variant 
                     tmp_metric = torch.cumsum(sort_res[0], dim=1)
                     sum_before = W_metric.sum(dim=1)
+
                     alpha = 0.4
                     alpha_hist = [0., 0.8]
                     W_mask, cur_sparsity = return_given_alpha(alpha, sort_res, W_metric, tmp_metric, sum_before)
-                    while abs(cur_sparsity - args.sparsity_ratio) > 0.001 and (alpha_hist[1] - alpha_hist[0] >= 0.001):
+                    while (torch.abs(cur_sparsity - args.sparsity_ratio)>0.001) and (alpha_hist[1]-alpha_hist[0]>=0.001):
                         if cur_sparsity > args.sparsity_ratio:
-                            alpha = (alpha + alpha_hist[0]) / 2.0
+                            alpha_new = (alpha + alpha_hist[0]) / 2.0
                             alpha_hist[1] = alpha
                         else:
-                            alpha = (alpha + alpha_hist[1]) / 2.0
+                            alpha_new = (alpha + alpha_hist[1]) / 2.0
                             alpha_hist[0] = alpha
+
+                        alpha = alpha_new 
                         W_mask, cur_sparsity = return_given_alpha(alpha, sort_res, W_metric, tmp_metric, sum_before)
                     print(f"alpha found {alpha} sparsity {cur_sparsity:.6f}")
                 else:
-                    indices = sort_res[1][:, :int(W_metric.shape[1] * args.sparsity_ratio)]
+                    # unstructured pruning
+                    indices = sort_res[1][:,:int(W_metric.shape[1]*args.sparsity_ratio)]
                     W_mask.scatter_(1, indices, True)
 
-            # Apply mask on GPU, then move back to CPU to save GPU memory
-            subset[name].weight.data[W_mask.to(dev)] = 0  # Apply mask and zero-out pruned weights
+            subset[name].weight.data[W_mask] = 0  ## set weights to zero 
 
-        # Update CPU tensors for the next layer, freeing GPU memory immediately
-        inps_cpu = outs_cpu.clone()
-        outs_cpu.zero_()
-        torch.cuda.empty_cache()  # Explicitly free GPU memory to prevent memory overflow
+        for j in range(args.nsamples):
+            with torch.no_grad():
+                outs[j] = layer(inps[j].unsqueeze(0), attention_mask=attention_mask, position_ids=position_ids)[0]
+        inps, outs = outs, inps
 
-    # Restore original cache setting and clear GPU cache at the end
-    model.config.use_cache = use_cache
+    model.config.use_cache = use_cache 
     torch.cuda.empty_cache()
+
+# Optimized by moving all data to CPU, Only move to GPU when needed
+# def prune_wanda(args, model, tokenizer, device=torch.device("cuda:0"), prune_n=0, prune_m=0):
+#     use_cache = model.config.use_cache
+#     model.config.use_cache = False
+
+#     print("loading calibration data")
+#     dataloader, _ = get_loaders("c4", nsamples=args.nsamples, seed=args.seed, seqlen=model.seqlen, tokenizer=tokenizer)
+#     print("dataset loading complete")
+
+#     # Prepare calibration data on CPU, only moving to GPU when required
+#     inps_cpu, outs_cpu, attention_mask_cpu, position_ids_cpu = prepare_calibration_input(model, dataloader, "cpu")
+
+#     layers = model.model.layers
+#     for i, layer in enumerate(layers):
+#         subset = find_layers(layer)
+
+#         # Determine device for the current layer
+#         dev = model.hf_device_map.get(f"model.layers.{i}", device)
+
+#         # Move only required data to GPU for this specific layer
+#         inps = inps_cpu.to(dev, non_blocking=True)
+#         outs = outs_cpu.to(dev, non_blocking=True)
+#         attention_mask = attention_mask_cpu.to(dev, non_blocking=True)
+#         position_ids = position_ids_cpu.to(dev, non_blocking=True)
+
+#         wrapped_layers = {}
+#         for name in subset:
+#             wrapped_layers[name] = WrappedGPT(subset[name])
+
+#         # Capture intermediate activations on CPU
+#         def add_batch(name):
+#             def tmp(_, inp, out):
+#                 wrapped_layers[name].add_batch(inp[0].data.cpu(), out.data.cpu())  # Store activations on CPU
+#             return tmp
+
+#         # Register forward hooks for capturing activations
+#         handles = [subset[name].register_forward_hook(add_batch(name)) for name in wrapped_layers]
+
+#         # Iterate over each sample, one by one, to reduce memory load
+#         for j in range(args.nsamples):
+#             with torch.no_grad():
+#                 # Move each sample to GPU only when needed
+#                 inps_j = inps[j].unsqueeze(0).to(dev, non_blocking=True)
+#                 outs[j] = layer(inps_j, attention_mask=attention_mask, position_ids=position_ids)[0]
+
+#         # Remove hooks to free up memory
+#         for h in handles:
+#             h.remove()
+
+#         # Apply pruning based on calculated metrics
+#         for name in subset:
+#             print(f"pruning layer {i} name {name}")
+#             # Compute W_metric on CPU to avoid GPU memory overload
+#             W_metric = torch.abs(subset[name].weight.data.cpu()) * torch.sqrt(wrapped_layers[name].scaler_row.reshape((1, -1)).cpu())
+#             W_mask = torch.zeros_like(W_metric, dtype=torch.bool)  # Initialize mask as all False
+
+#             # Structured n:m sparsity
+#             if prune_n != 0:
+#                 for ii in range(W_metric.shape[1]):
+#                     if ii % prune_m == 0:
+#                         tmp = W_metric[:, ii:(ii + prune_m)].float()
+#                         W_mask.scatter_(1, ii + torch.topk(tmp, prune_n, dim=1, largest=False)[1], True)
+#             else:
+#                 # Unstructured pruning with wanda variant
+#                 sort_res = torch.sort(W_metric, dim=-1, stable=True)
+#                 if args.use_variant:
+#                     tmp_metric = torch.cumsum(sort_res[0], dim=1)
+#                     sum_before = W_metric.sum(dim=1)
+#                     alpha = 0.4
+#                     alpha_hist = [0., 0.8]
+#                     W_mask, cur_sparsity = return_given_alpha(alpha, sort_res, W_metric, tmp_metric, sum_before)
+#                     while abs(cur_sparsity - args.sparsity_ratio) > 0.001 and (alpha_hist[1] - alpha_hist[0] >= 0.001):
+#                         if cur_sparsity > args.sparsity_ratio:
+#                             alpha = (alpha + alpha_hist[0]) / 2.0
+#                             alpha_hist[1] = alpha
+#                         else:
+#                             alpha = (alpha + alpha_hist[1]) / 2.0
+#                             alpha_hist[0] = alpha
+#                         W_mask, cur_sparsity = return_given_alpha(alpha, sort_res, W_metric, tmp_metric, sum_before)
+#                     print(f"alpha found {alpha} sparsity {cur_sparsity:.6f}")
+#                 else:
+#                     indices = sort_res[1][:, :int(W_metric.shape[1] * args.sparsity_ratio)]
+#                     W_mask.scatter_(1, indices, True)
+
+#             # Apply mask on GPU, then move back to CPU to save GPU memory
+#             subset[name].weight.data[W_mask.to(dev)] = 0  # Apply mask and zero-out pruned weights
+
+#         # Update CPU tensors for the next layer, freeing GPU memory immediately
+#         inps_cpu = outs_cpu.clone()
+#         outs_cpu.zero_()
+#         torch.cuda.empty_cache()  # Explicitly free GPU memory to prevent memory overflow
+
+#     # Restore original cache setting and clear GPU cache at the end
+#     model.config.use_cache = use_cache
+#     torch.cuda.empty_cache()
 
 
 
