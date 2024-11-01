@@ -21,8 +21,7 @@ mpirun -np 4 torchrun \
     --rdzv_backend=c10d \
     --rdzv_endpoint=localhost:${MASTER_PORT} \
     --max_restarts 3 \
-    --rdzv_timeout 600 \  # Extending timeout to 10 minutes
-    main.py \
+    ./main.py \  # Ensure correct path to main.py
     --model $model \
     --prune_method "wanda" \
     --sparsity_ratio $sparsity_ratio \
