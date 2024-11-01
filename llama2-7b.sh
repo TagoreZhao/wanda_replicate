@@ -3,7 +3,6 @@
 # Set common variables
 model="meta-llama/Llama-2-7b-chat-hf"
 sparsity_ratio=0.5
-precision="fp16"  # Mixed precision for optimized memory usage
 
 # Function to check available GPUs (idle or low memory usage)
 get_available_gpus() {
@@ -32,7 +31,7 @@ fi
 # Set CUDA device visibility for available GPUs
 export CUDA_VISIBLE_DEVICES=$(IFS=,; echo "${cuda_devices[*]}")
 
-# Define function to run python command with logging
+# Define function to run python command with logging, per template
 run_python_command () {
    log_file="logs/$(basename $3)_$(date +'%Y%m%d_%H%M%S').log"
    mkdir -p $(dirname "$log_file")
@@ -42,8 +41,6 @@ run_python_command () {
    --sparsity_ratio $sparsity_ratio \
    --sparsity_type $2 \
    --save $3 \
-   --precision $precision \
-   --multi_gpu True \
    &> "$log_file"
 }
 
@@ -70,4 +67,5 @@ run_python_command "magnitude" "4:8" "out/llama_7b/4-8/magnitude/" &
 wait  # Wait for all background processes to finish
 
 echo "All pruning tasks with sparsity 0.5 completed."
+
 
