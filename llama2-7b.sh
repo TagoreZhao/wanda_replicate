@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set common variables
-model="meta-llama/Llama-2-7b-chat-hf"
+model="baffo32/decapoda-research-llama-7B-hf"
 sparsity_ratio=0.5
 
 # Function to check available GPUs (idle or low memory usage)
