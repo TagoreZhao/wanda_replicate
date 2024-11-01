@@ -1,0 +1,173 @@
+Running wanda pruning with MPI on a single node with 4 GPUs
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    backend = Backend(backend)    
+backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+    raise ValueError("Invalid backend: '{}'".format(name))ValueError
+: ValueErrorInvalid backend: 'gloo|nccl': 
+Invalid backend: 'gloo|nccl'
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 4036431) of binary: /Users/918839576/miniconda3/envs/prune_llm/bin/python
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 4036456) of binary: /Users/918839576/miniconda3/envs/prune_llm/bin/python
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 4036477) of binary: /Users/918839576/miniconda3/envs/prune_llm/bin/python
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 12, in <module>
+    dist.init_process_group(backend="gloo|nccl")
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 556, in init_process_group
+    backend = Backend(backend)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/distributed_c10d.py", line 123, in __new__
+    raise ValueError("Invalid backend: '{}'".format(name))
+ValueError: Invalid backend: 'gloo|nccl'
+slurmstepd: error: *** JOB 2487 ON gpu01 CANCELLED AT 2024-11-01T16:41:49 ***
