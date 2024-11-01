@@ -1,0 +1,6 @@
+Available GPUs: 1 2 3
+Running pruning tasks with sparsity ratio 0.5
+Running wanda pruning method with sparsity 0.5
+Running sparsegpt pruning method with sparsity 0.5
+Running magnitude pruning method with sparsity 0.5
+All pruning tasks with sparsity 0.5 completed.

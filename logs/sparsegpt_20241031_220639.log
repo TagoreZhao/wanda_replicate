@@ -1,0 +1,58 @@
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:471: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+torch 1.10.1
+transformers 4.46.1
+accelerate 1.0.1
+# of gpus:  1
+loading llm model meta-llama/Llama-2-7b-chat-hf
+Traceback (most recent call last):
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/utils/_http.py", line 406, in hf_raise_for_status
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/requests/models.py", line 1024, in raise_for_status
+    raise HTTPError(http_error_msg, response=self)
+requests.exceptions.HTTPError: 403 Client Error: Forbidden for url: https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/utils/hub.py", line 403, in cached_file
+    resolved_file = hf_hub_download(
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/file_download.py", line 862, in hf_hub_download
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/file_download.py", line 969, in _hf_hub_download_to_cache_dir
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/file_download.py", line 1484, in _raise_on_head_call_error
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/file_download.py", line 1376, in _get_metadata_or_catch_error
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/utils/_validators.py", line 114, in _inner_fn
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/file_download.py", line 1296, in get_hf_file_metadata
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/file_download.py", line 277, in _request_wrapper
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/file_download.py", line 301, in _request_wrapper
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/huggingface_hub-0.26.2-py3.8.egg/huggingface_hub/utils/_http.py", line 423, in hf_raise_for_status
+huggingface_hub.errors.GatedRepoError: 403 Client Error. (Request ID: Root=1-672461e3-049d6bd7454777a4774beb1b;2f3e5f11-ebbb-4f3b-b4cc-c1a04ef96b2e)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted and you are not in the authorized list. Visit https://huggingface.co/meta-llama/Llama-2-7b-chat-hf to ask for access.
+
+The above exception was the direct cause of the following exception:
+
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 110, in <module>
+    main()
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 57, in main
+    model = get_llm(args.model, args.cache_dir)
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 17, in get_llm
+    model = AutoModelForCausalLM.from_pretrained(
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py", line 526, in from_pretrained
+    config, kwargs = AutoConfig.from_pretrained(
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/configuration_auto.py", line 1017, in from_pretrained
+    config_dict, unused_kwargs = PretrainedConfig.get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/configuration_utils.py", line 574, in get_config_dict
+    config_dict, kwargs = cls._get_config_dict(pretrained_model_name_or_path, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/configuration_utils.py", line 633, in _get_config_dict
+    resolved_config_file = cached_file(
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/utils/hub.py", line 421, in cached_file
+    raise EnvironmentError(
+OSError: You are trying to access a gated repo.
+Make sure to have access to it at https://huggingface.co/meta-llama/Llama-2-7b-chat-hf.
+403 Client Error. (Request ID: Root=1-672461e3-049d6bd7454777a4774beb1b;2f3e5f11-ebbb-4f3b-b4cc-c1a04ef96b2e)
+
+Cannot access gated repo for url https://huggingface.co/meta-llama/Llama-2-7b-chat-hf/resolve/main/config.json.
+Access to model meta-llama/Llama-2-7b-chat-hf is restricted and you are not in the authorized list. Visit https://huggingface.co/meta-llama/Llama-2-7b-chat-hf to ask for access.
