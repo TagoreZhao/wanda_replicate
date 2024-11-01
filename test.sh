@@ -29,7 +29,5 @@ mpirun -np 4 torchrun \
 
 wait
 echo "Finished wanda pruning with MPI on a single node"
-
-
 # Explicitly exit
 exit 0

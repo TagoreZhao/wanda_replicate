@@ -1,2 +1,0 @@
-Running pruning tasks with sparsity ratio 0.5 on a single GPU, sequentially to avoid memory overload.
-All pruning tasks with sparsity 0.5 completed.
