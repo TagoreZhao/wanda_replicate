@@ -10,16 +10,18 @@
 # Set common variables
 model="meta-llama/Llama-2-7b-chat-hf"
 sparsity_ratio=0.5
-export MASTER_PORT=$((12000 + RANDOM % 1000))  # Unique port for each job
-export OMP_NUM_THREADS=1
+export MASTER_PORT=$((12000 + RANDOM % 5000))  # Assign a broader unique port range
+export OMP_NUM_THREADS=1  # Limit CPU threads per process
 
-# Run pruning with torchrun
-echo "Running wanda pruning with MPI on a single node with 4 GPUs"
+# Run the pruning script with MPI and torchrun
+echo "Running with MPI and wanda pruning method on a single node with 4 GPUs"
 
 mpirun -np 4 torchrun \
     --nproc_per_node=4 \
     --rdzv_backend=c10d \
     --rdzv_endpoint=localhost:${MASTER_PORT} \
+    --max_restarts 3 \
+    --rdzv_timeout 600 \  # Extending timeout to 10 minutes
     main.py \
     --model $model \
     --prune_method "wanda" \
@@ -29,5 +31,6 @@ mpirun -np 4 torchrun \
 
 wait
 echo "Finished wanda pruning with MPI on a single node"
+
 # Explicitly exit
 exit 0
