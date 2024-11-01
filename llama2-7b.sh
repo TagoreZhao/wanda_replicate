@@ -2,7 +2,6 @@
 #SBATCH -p gpucluster
 #SBATCH --job-name=llama2-pruning
 #SBATCH --output=logs/slurm-%j.out
-#SBATCH --gres=gpu:1                  # Use one GPU per process to start
 
 # Set common variables
 model="meta-llama/Llama-2-7b-chat-hf"
