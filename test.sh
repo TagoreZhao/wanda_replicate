@@ -16,7 +16,7 @@ export OMP_NUM_THREADS=1  # Limit CPU threads per process
 # Run the pruning script with MPI and torchrun
 echo "Running with MPI and wanda pruning method on a single node with 4 GPUs"
 
-mpirun --kill-on-bad-exit -np 4 torchrun \
+mpirun -np 4 torchrun \
     --nproc_per_node=4 main.py \
     --model $model \
     --prune_method "wanda" \
