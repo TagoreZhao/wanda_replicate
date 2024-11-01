@@ -3,10 +3,33 @@
 # Set common variables
 model="meta-llama/Llama-2-7b-chat-hf"
 sparsity_ratio=0.5
-cuda_devices=(0 1 2 3)  # Use all four GPUs if available
 precision="fp16"  # Mixed precision for optimized memory usage
 
-# Set CUDA device visibility for multi-GPU use
+# Function to check available GPUs (idle or low memory usage)
+get_available_gpus() {
+  available_gpus=()
+  for gpu_id in {0..3}; do
+    # Check memory usage for each GPU (using nvidia-smi)
+    memory_used=$(nvidia-smi --query-gpu=memory.used --format=csv,noheader,nounits -i $gpu_id)
+    if [ "$memory_used" -lt 1000 ]; then  # Consider GPUs with less than 1GB used as available
+      available_gpus+=($gpu_id)
+    fi
+  done
+  echo "${available_gpus[@]}"
+}
+
+# Get list of available GPUs
+cuda_devices=$(get_available_gpus)
+
+# Check if we have any available GPUs
+if [ -z "$cuda_devices" ]; then
+  echo "No available GPUs found. Exiting."
+  exit 1
+else
+  echo "Available GPUs: $cuda_devices"
+fi
+
+# Set CUDA device visibility for available GPUs
 export CUDA_VISIBLE_DEVICES=$(IFS=,; echo "${cuda_devices[*]}")
 
 # Define function to run python command with logging
@@ -47,3 +70,4 @@ run_python_command "magnitude" "4:8" "out/llama_7b/4-8/magnitude/" &
 wait  # Wait for all background processes to finish
 
 echo "All pruning tasks with sparsity 0.5 completed."
+
