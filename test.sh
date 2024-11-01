@@ -18,7 +18,7 @@ echo "Running wanda pruning with MPI on a single node with 4 GPUs"
 
 mpirun -np 4 torchrun \
     --nproc_per_node 4 \
-    --rdzv_conf timeout=300 \
+    --rdzv_conf join_timeout = 1000 \
     --max_restarts 3 \
     --rdzv_backend c10d \
     --rdzv_endpoint localhost:${MASTER_PORT} \
