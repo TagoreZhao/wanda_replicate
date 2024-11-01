@@ -6,6 +6,9 @@
 #SBATCH --output=logs/slurm-%j.out
 #SBATCH --ntasks=4
 #SBATCH --nodes=1
+#SBATCH --cpus-per-task=4    # Allocate 4 CPU cores per GPU task
+
+module load mpi/openmpi-x86_64
 
 # Set common variables
 model="meta-llama/Llama-2-7b-chat-hf"
@@ -18,8 +21,8 @@ echo "Running wanda pruning with MPI on a single node with 4 GPUs"
 
 mpirun -np 4 torchrun \
     --nproc_per_node 4 \
-    --rdzv_conf join_timeout=10000 \
-    --max_restarts 3 \
+    --rdzv_conf join_timeout=50000 \
+    --max_restarts 5 \
     --rdzv_backend c10d \
     --rdzv_endpoint localhost:${MASTER_PORT} \
     main.py \
