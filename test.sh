@@ -4,18 +4,19 @@
 #SBATCH -p gpucluster
 #SBATCH --job-name=llama2-pruning
 #SBATCH --output=logs/slurm-%j.out
-#SBATCH --nodes=1            # Ensure we’re using only one node
-#SBATCH --ntasks=4           # Set the number of MPI tasks to 4
+#SBATCH --ntasks=4
+#SBATCH --nodes=1
 
 # Set common variables
 model="meta-llama/Llama-2-7b-chat-hf"
 sparsity_ratio=0.5
+export MASTER_PORT=$((12000 + RANDOM % 1000))  # Assign a unique port
+export OMP_NUM_THREADS=1  # Limit CPU threads per process
 
-# Launch the script with mpirun on a single node with 4 tasks
+# Run the pruning script with MPI and torchrun
 echo "Running with MPI and wanda pruning method on a single node with 4 GPUs"
 
-# Use mpirun to execute the command across 4 tasks (one per GPU)
-mpirun -np 4 python -m torch.distributed.launch \
+mpirun --kill-on-bad-exit -np 4 torchrun \
     --nproc_per_node=4 main.py \
     --model $model \
     --prune_method "wanda" \
@@ -23,4 +24,10 @@ mpirun -np 4 python -m torch.distributed.launch \
     --sparsity_type "2:4" \
     --save "out/llama_7b/2-4/wanda/"
 
+# Wait for all background processes
+wait
+
 echo "Finished wanda pruning with MPI on a single node"
+
+# Explicitly exit
+exit 0
