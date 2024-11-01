@@ -19,7 +19,7 @@ echo "Running wanda pruning with MPI on a single node with 4 GPUs"
 mpirun -np 4 torchrun \
     --nnodes 1:4 \
     --nproc_per_node 4 \
-    --max-restarts 3 \
+    --max_srestarts 3 \
     --rdzv_backend c10d \
     --rdzv_endpoint localhost:${MASTER_PORT} \
     main.py \
