@@ -1,0 +1,40 @@
+
+A module that was compiled using NumPy 1.x cannot be run in
+NumPy 2.0.2 as it may crash. To support both 1.x and 2.x
+versions of NumPy, modules must be compiled with NumPy 2.0.
+Some module may need to rebuild instead e.g. with 'pybind11>=2.12'.
+
+If you are a user of the module, the easiest solution will be to
+downgrade to 'numpy<2' or try to upgrade the affected module.
+We expect that some modules will need time to support NumPy 2.
+
+Traceback (most recent call last):  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 4, in <module>
+    import torch
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/__init__.py", line 643, in <module>
+    from .functional import *  # noqa: F403
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/functional.py", line 6, in <module>
+    import torch.nn.functional as F
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/nn/__init__.py", line 1, in <module>
+    from .modules import *  # noqa: F403
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/nn/modules/__init__.py", line 2, in <module>
+    from .linear import Identity, Linear, Bilinear, LazyLinear
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/nn/modules/linear.py", line 6, in <module>
+    from .. import functional as F
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/nn/functional.py", line 11, in <module>
+    from .._jit_internal import boolean_dispatch, _overload, BroadcastingList1, BroadcastingList2, BroadcastingList3
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/_jit_internal.py", line 28, in <module>
+    import torch.package._mangling as package_mangling
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/package/__init__.py", line 12, in <module>
+    from .package_importer import PackageImporter
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/package/package_importer.py", line 16, in <module>
+    from ._directory_reader import DirectoryReader
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/package/_directory_reader.py", line 17, in <module>
+    _dtype_to_storage = {data_type(0).dtype: data_type for data_type in _storages}
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/package/_directory_reader.py", line 17, in <dictcomp>
+    _dtype_to_storage = {data_type(0).dtype: data_type for data_type in _storages}
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/package/_directory_reader.py:17: UserWarning: Failed to initialize NumPy: _ARRAY_API not found (Triggered internally at  /opt/conda/conda-bld/pytorch_1639180487213/work/torch/csrc/utils/tensor_numpy.cpp:68.)
+  _dtype_to_storage = {data_type(0).dtype: data_type for data_type in _storages}
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 5, in <module>
+    from transformers import AutoTokenizer, AutoModelForCausalLM
+ModuleNotFoundError: No module named 'transformers'
