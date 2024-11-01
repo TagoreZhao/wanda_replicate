@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set common variables
-model="decapoda-research/llama-65b-hf"
+model="meta-llama/Llama-2-70b-hf"
 sparsity_ratio=0.5
 
 # Define function to run python command

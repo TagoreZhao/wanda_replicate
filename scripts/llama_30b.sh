@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set common variables
-model="decapoda-research/llama-30b-hf"
+model="meta-llama/CodeLlama-34b-hf"
 sparsity_ratio=0.5
 cuda_devices="0,1"
 

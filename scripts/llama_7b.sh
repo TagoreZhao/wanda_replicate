@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Set common variables
-model="baffo32/decapoda-research-llama-7B-hf"
+model="meta-llama/Llama-2-7b-chat-hf"
 sparsity_ratio=0.5
 cuda_device=0
 
