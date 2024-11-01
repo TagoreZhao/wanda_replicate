@@ -4,7 +4,6 @@
 #SBATCH -p gpucluster
 #SBATCH --job-name=llama2-pruning
 #SBATCH --output=logs/slurm-%j.out
-#SBATCH --gres=gpu:4         # Request 4 GPUs on this single node
 #SBATCH --nodes=1            # Ensure we’re using only one node
 #SBATCH --ntasks=4           # Set the number of MPI tasks to 4
 
