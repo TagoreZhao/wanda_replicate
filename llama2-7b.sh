@@ -1,4 +1,6 @@
 #!/bin/bash
+#SBATCH --mail-type=ALL
+#SBATCH --mail-user=zhaotagore@gmail.com
 #SBATCH -p gpucluster
 #SBATCH --job-name=llama2-pruning
 #SBATCH --output=logs/slurm-%j.out
