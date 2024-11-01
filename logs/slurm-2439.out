@@ -1,0 +1,4 @@
+Running with MPI and wanda pruning method on a single node with 4 GPUs
+mpirun: Error: unknown option "--kill-on-bad-exit"
+Type 'mpirun --help' for usage.
+Finished wanda pruning with MPI on a single node
