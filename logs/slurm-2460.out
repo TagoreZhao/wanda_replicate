@@ -1,0 +1,105 @@
+Running wanda pruning with MPI on a single node with 4 GPUs
+ERROR:torch.distributed.elastic.multiprocessing.errors.error_handler:{
+  "message": {
+    "message": "ValueError: The rendezvous configuration option 'join_timeout' must have a value specified.",
+    "extraInfo": {
+      "py_callstack": "Traceback (most recent call last):\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py\", line 345, in wrapper\n    return f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 719, in main\n    run(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 709, in run\n    config, cmd, cmd_args = config_from_args(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 631, in config_from_args\n    rdzv_configs = _parse_rendezvous_config(args.rdzv_conf)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/utils.py\", line 48, in _parse_rendezvous_config\n    raise ValueError(\nValueError: The rendezvous configuration option 'join_timeout' must have a value specified.\n",
+      "timestamp": "1730462100"
+    }
+  }
+}
+Traceback (most recent call last):
+  File "/Users/918839576/miniconda3/envs/prune_llm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==1.10.1', 'console_scripts', 'torchrun')())
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 719, in main
+ERROR:torch.distributed.elastic.multiprocessing.errors.error_handler:{
+  "message": {
+    "message": "ValueError: The rendezvous configuration option 'join_timeout' must have a value specified.",
+    "extraInfo": {
+      "py_callstack": "Traceback (most recent call last):\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py\", line 345, in wrapper\n    return f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 719, in main\n    run(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 709, in run\n    config, cmd, cmd_args = config_from_args(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 631, in config_from_args\n    rdzv_configs = _parse_rendezvous_config(args.rdzv_conf)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/utils.py\", line 48, in _parse_rendezvous_config\n    raise ValueError(\nValueError: The rendezvous configuration option 'join_timeout' must have a value specified.\n",
+      "timestamp": "1730462100"
+    }
+  }
+}
+Traceback (most recent call last):
+  File "/Users/918839576/miniconda3/envs/prune_llm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==1.10.1', 'console_scripts', 'torchrun')())
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    run(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 709, in run
+ERROR:torch.distributed.elastic.multiprocessing.errors.error_handler:{
+  "message": {
+    "message": "ValueError: The rendezvous configuration option 'join_timeout' must have a value specified.",
+    "extraInfo": {
+      "py_callstack": "Traceback (most recent call last):\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py\", line 345, in wrapper\n    return f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 719, in main\n    run(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 709, in run\n    config, cmd, cmd_args = config_from_args(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 631, in config_from_args\n    rdzv_configs = _parse_rendezvous_config(args.rdzv_conf)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/utils.py\", line 48, in _parse_rendezvous_config\n    raise ValueError(\nValueError: The rendezvous configuration option 'join_timeout' must have a value specified.\n",
+      "timestamp": "1730462100"
+    }
+  }
+}
+Traceback (most recent call last):
+  File "/Users/918839576/miniconda3/envs/prune_llm/bin/torchrun", line 33, in <module>
+    return f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 719, in main
+    config, cmd, cmd_args = config_from_args(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 631, in config_from_args
+    sys.exit(load_entry_point('torch==1.10.1', 'console_scripts', 'torchrun')())
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    run(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 709, in run
+    return f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 719, in main
+    rdzv_configs = _parse_rendezvous_config(args.rdzv_conf)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/utils.py", line 48, in _parse_rendezvous_config
+    config, cmd, cmd_args = config_from_args(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 631, in config_from_args
+    raise ValueError(
+ValueError: The rendezvous configuration option 'join_timeout' must have a value specified.
+    run(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 709, in run
+    rdzv_configs = _parse_rendezvous_config(args.rdzv_conf)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/utils.py", line 48, in _parse_rendezvous_config
+    config, cmd, cmd_args = config_from_args(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 631, in config_from_args
+    raise ValueError(
+ValueError: The rendezvous configuration option 'join_timeout' must have a value specified.
+    rdzv_configs = _parse_rendezvous_config(args.rdzv_conf)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/utils.py", line 48, in _parse_rendezvous_config
+    raise ValueError(
+ValueError: The rendezvous configuration option 'join_timeout' must have a value specified.
+ERROR:torch.distributed.elastic.multiprocessing.errors.error_handler:{
+  "message": {
+    "message": "ValueError: The rendezvous configuration option 'join_timeout' must have a value specified.",
+    "extraInfo": {
+      "py_callstack": "Traceback (most recent call last):\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py\", line 345, in wrapper\n    return f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 719, in main\n    run(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 709, in run\n    config, cmd, cmd_args = config_from_args(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 631, in config_from_args\n    rdzv_configs = _parse_rendezvous_config(args.rdzv_conf)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/utils.py\", line 48, in _parse_rendezvous_config\n    raise ValueError(\nValueError: The rendezvous configuration option 'join_timeout' must have a value specified.\n",
+      "timestamp": "1730462100"
+    }
+  }
+}
+Traceback (most recent call last):
+  File "/Users/918839576/miniconda3/envs/prune_llm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==1.10.1', 'console_scripts', 'torchrun')())
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 719, in main
+    run(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 709, in run
+    config, cmd, cmd_args = config_from_args(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 631, in config_from_args
+    rdzv_configs = _parse_rendezvous_config(args.rdzv_conf)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/utils.py", line 48, in _parse_rendezvous_config
+    raise ValueError(
+ValueError: The rendezvous configuration option 'join_timeout' must have a value specified.
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[60850,1],0]
+  Exit code:    1
+--------------------------------------------------------------------------
+Finished wanda pruning with MPI on a single node
