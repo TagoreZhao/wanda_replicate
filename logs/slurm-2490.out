@@ -389,3 +389,700 @@ use device  cuda:0
 pruning starts
 loading calibdation data
 dataset loading complete
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+dataset loading complete
+dataset loading complete
+dataset loading complete
+pruning layer 0 name self_attn.q_proj
+pruning layer 0 name self_attn.k_proj
+pruning layer 0 name self_attn.v_proj
+pruning layer 0 name self_attn.o_proj
+pruning layer 0 name mlp.gate_proj
+pruning layer 0 name mlp.up_proj
+pruning layer 0 name mlp.down_proj
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 117, in <module>
+    main()
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 76, in main
+    prune_wanda(args, model, tokenizer, device, prune_n=prune_n, prune_m=prune_m)
+  File "/Users/918839576/Trepo/wanda_replicate/lib/prune.py", line 205, in prune_wanda
+    outs[j] = layer(inps[j].unsqueeze(0), attention_mask=attention_mask, position_ids=position_ids)[0]
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 676, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 373, in forward
+    attn_weights = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/nn/functional.py", line 1682, in softmax
+    ret = input.softmax(dim, dtype=dtype)
+RuntimeError: CUDA out of memory. Tried to allocate 2.00 GiB (GPU 0; 79.14 GiB total capacity; 12.04 GiB already allocated; 1.35 GiB free; 12.18 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+pruning layer 1 name self_attn.q_proj
+pruning layer 1 name self_attn.k_proj
+pruning layer 0 name self_attn.q_proj
+pruning layer 0 name self_attn.q_proj
+pruning layer 1 name self_attn.v_proj
+pruning layer 1 name self_attn.o_proj
+pruning layer 1 name mlp.gate_proj
+pruning layer 1 name mlp.up_proj
+pruning layer 0 name self_attn.k_proj
+pruning layer 1 name mlp.down_proj
+pruning layer 0 name self_attn.k_proj
+pruning layer 0 name self_attn.v_proj
+pruning layer 0 name self_attn.v_proj
+pruning layer 0 name self_attn.o_proj
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 4037773 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 4037774 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 4037775 closing signal SIGTERM
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 4037772) of binary: /Users/918839576/miniconda3/envs/prune_llm/bin/python
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+torch 1.10.1
+torch 1.10.1
+torch 1.10.1
+torch 1.10.1
+transformers 4.46.1
+transformers 4.46.1
+transformers 4.46.1
+transformers 4.46.1
+accelerate 1.0.1
+accelerate 1.0.1
+accelerate 1.0.1
+accelerate 1.0.1
+# of gpus:  4
+loading llm model meta-llama/Llama-2-7b-chat-hf
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:471: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+# of gpus:  4
+loading llm model meta-llama/Llama-2-7b-chat-hf
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:471: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+# of gpus:  4
+loading llm model meta-llama/Llama-2-7b-chat-hf
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:471: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+# of gpus:  4
+loading llm model meta-llama/Llama-2-7b-chat-hf
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:471: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.64s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  1.88s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:03<00:00,  2.00s/it]
+Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.99s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.13s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:04<00:04,  4.14s/it]use device  cuda:0
+pruning starts
+loading calibdation data
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.89s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.06s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.90s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.08s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  2.89s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:06<00:00,  3.08s/it]
+use device  cuda:0
+pruning starts
+loading calibdation data
+use device  cuda:0
+pruning starts
+loading calibdation data
+use device  cuda:0
+pruning starts
+loading calibdation data
+dataset loading complete
+dataset loading complete
+dataset loading complete
+dataset loading complete
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+pruning layer 0 name self_attn.q_proj
+pruning layer 0 name self_attn.k_proj
+pruning layer 0 name self_attn.v_proj
+pruning layer 0 name self_attn.o_proj
+pruning layer 0 name mlp.gate_proj
+pruning layer 0 name mlp.up_proj
+pruning layer 0 name mlp.down_proj
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+Traceback (most recent call last):
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 117, in <module>
+    main()
+  File "/Users/918839576/Trepo/wanda_replicate/main.py", line 76, in main
+    prune_wanda(args, model, tokenizer, device, prune_n=prune_n, prune_m=prune_m)
+  File "/Users/918839576/Trepo/wanda_replicate/lib/prune.py", line 205, in prune_wanda
+    outs[j] = layer(inps[j].unsqueeze(0), attention_mask=attention_mask, position_ids=position_ids)[0]
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 676, in forward
+    hidden_states, self_attn_weights, present_key_value = self.self_attn(
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/nn/modules/module.py", line 1102, in _call_impl
+    return forward_call(*input, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/accelerate/hooks.py", line 170, in new_forward
+    output = module._old_forward(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/llama/modeling_llama.py", line 373, in forward
+    attn_weights = nn.functional.softmax(attn_weights, dim=-1, dtype=torch.float32).to(query_states.dtype)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/nn/functional.py", line 1682, in softmax
+    ret = input.softmax(dim, dtype=dtype)
+RuntimeError: CUDA out of memory. Tried to allocate 2.00 GiB (GPU 0; 79.14 GiB total capacity; 12.04 GiB already allocated; 1.35 GiB free; 12.18 GiB reserved in total by PyTorch) If reserved memory is >> allocated memory try setting max_split_size_mb to avoid fragmentation.  See documentation for Memory Management and PYTORCH_CUDA_ALLOC_CONF
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 4038142 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 4038143 closing signal SIGTERM
+WARNING:torch.distributed.elastic.multiprocessing.api:Sending process 4038144 closing signal SIGTERM
+ERROR:torch.distributed.elastic.multiprocessing.api:failed (exitcode: 1) local_rank: 0 (pid: 4038141) of binary: /Users/918839576/miniconda3/envs/prune_llm/bin/python
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/pandas/core/computation/expressions.py:21: UserWarning: Pandas requires version '2.8.4' or newer of 'numexpr' (version '2.7.3' currently installed).
+  from pandas.core.computation.check import NUMEXPR_INSTALLED
+torch 1.10.1
+torch 1.10.1
+torch 1.10.1
+torch 1.10.1
+transformers 4.46.1
+transformers 4.46.1
+transformers 4.46.1
+transformers 4.46.1
+accelerate 1.0.1
+accelerateaccelerate  1.0.11.0.1
+
+accelerate 1.0.1
+# of gpus:  4
+loading llm model meta-llama/Llama-2-7b-chat-hf
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:471: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+# of gpus:  4
+loading llm model meta-llama/Llama-2-7b-chat-hf
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:471: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+# of gpus:  4
+loading llm model meta-llama/Llama-2-7b-chat-hf
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:471: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+# of gpus:  4
+loading llm model meta-llama/Llama-2-7b-chat-hf
+/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/transformers/models/auto/auto_factory.py:471: FutureWarning: The `use_auth_token` argument is deprecated and will be removed in v5 of Transformers. Please use `token` instead.
+  warnings.warn(
+Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:   0%|          | 0/2 [00:00<?, ?it/s]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.75s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:02<00:02,  2.62s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.92s/it]Loading checkpoint shards:  50%|█████     | 1/2 [00:03<00:03,  3.93s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.54s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.73s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  1.94s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:04<00:00,  2.04s/it]
+use device  cuda:0
+pruning starts
+loading calibdation data
+use device  cuda:0
+pruning starts
+loading calibdation data
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.78s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.95s/it]
+Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.82s/it]Loading checkpoint shards: 100%|██████████| 2/2 [00:05<00:00,  2.99s/it]
+use device  cuda:0
+pruning starts
+loading calibdation data
+use device  cuda:0
+pruning starts
+loading calibdation data
+dataset loading complete
+dataset loading complete
+dataset loading complete
+dataset loading complete
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+pruning layer 0 name self_attn.q_proj
+pruning layer 0 name self_attn.k_proj
+pruning layer 0 name self_attn.v_proj
+pruning layer 0 name self_attn.o_proj
+pruning layer 0 name mlp.gate_proj
+pruning layer 0 name mlp.up_proj
+pruning layer 0 name mlp.down_proj
+pruning layer 0 name self_attn.q_proj
+pruning layer 0 name self_attn.q_proj
+pruning layer 0 name self_attn.k_proj
+pruning layer 0 name self_attn.v_proj
+pruning layer 0 name self_attn.k_proj
+pruning layer 0 name self_attn.o_proj
+pruning layer 0 name self_attn.v_proj
+pruning layer 0 name mlp.gate_proj
+pruning layer 0 name self_attn.o_proj
+pruning layer 0 name mlp.up_proj
+pruning layer 0 name mlp.gate_proj
+pruning layer 0 name mlp.down_proj
+pruning layer 0 name mlp.up_proj
+pruning layer 0 name mlp.down_proj
+The attention layers in this model are transitioning from computing the RoPE embeddings internally through `position_ids` (2D tensor with the indexes of the tokens), to using externally computed `position_embeddings` (Tuple of tensors, containing cos and sin). In v4.46 `position_ids` will be removed and `position_embeddings` will be mandatory.
+pruning layer 0 name self_attn.q_proj
+pruning layer 0 name self_attn.k_proj
+pruning layer 0 name self_attn.v_proj
+pruning layer 0 name self_attn.o_proj
+pruning layer 0 name mlp.gate_proj
+pruning layer 0 name mlp.up_proj
+pruning layer 0 name mlp.down_proj
+pruning layer 1 name self_attn.q_proj
+pruning layer 1 name self_attn.k_proj
+pruning layer 1 name self_attn.v_proj
+pruning layer 1 name self_attn.o_proj
+pruning layer 1 name mlp.gate_proj
+pruning layer 1 name mlp.up_proj
+pruning layer 1 name mlp.down_proj
+pruning layer 1 name self_attn.q_proj
+pruning layer 1 name self_attn.q_proj
+pruning layer 1 name self_attn.k_proj
+pruning layer 1 name self_attn.k_proj
+pruning layer 1 name self_attn.v_proj
+pruning layer 1 name self_attn.v_proj
+pruning layer 1 name self_attn.o_proj
+pruning layer 1 name self_attn.o_proj
+pruning layer 1 name mlp.gate_proj
+pruning layer 1 name mlp.gate_proj
+pruning layer 1 name mlp.up_proj
+pruning layer 1 name mlp.up_proj
+pruning layer 1 name mlp.down_proj
+pruning layer 1 name mlp.down_proj
+pruning layer 1 name self_attn.q_proj
+pruning layer 1 name self_attn.k_proj
+pruning layer 1 name self_attn.v_proj
+pruning layer 1 name self_attn.o_proj
+pruning layer 1 name mlp.gate_proj
+pruning layer 1 name mlp.up_proj
+pruning layer 1 name mlp.down_proj
+pruning layer 2 name self_attn.q_proj
+pruning layer 2 name self_attn.k_proj
+pruning layer 2 name self_attn.v_proj
+pruning layer 2 name self_attn.o_proj
+pruning layer 2 name mlp.gate_proj
+pruning layer 2 name mlp.up_proj
+pruning layer 2 name mlp.down_proj
+pruning layer 2 name self_attn.q_proj
+pruning layer 2 name self_attn.q_proj
+pruning layer 2 name self_attn.k_proj
+pruning layer 2 name self_attn.k_proj
+pruning layer 2 name self_attn.v_proj
+pruning layer 2 name self_attn.v_proj
+pruning layer 2 name self_attn.o_proj
+pruning layer 2 name self_attn.o_proj
+pruning layer 2 name mlp.gate_proj
+pruning layer 2 name mlp.gate_proj
+pruning layer 2 name mlp.up_proj
+pruning layer 2 name mlp.up_proj
+pruning layer 2 name mlp.down_proj
+pruning layer 2 name mlp.down_proj
+pruning layer 2 name self_attn.q_proj
+pruning layer 2 name self_attn.k_proj
+pruning layer 2 name self_attn.v_proj
+pruning layer 2 name self_attn.o_proj
+pruning layer 2 name mlp.gate_proj
+pruning layer 2 name mlp.up_proj
+pruning layer 2 name mlp.down_proj
+pruning layer 3 name self_attn.q_proj
+pruning layer 3 name self_attn.k_proj
+pruning layer 3 name self_attn.v_proj
+pruning layer 3 name self_attn.o_proj
+pruning layer 3 name mlp.gate_proj
+pruning layer 3 name mlp.up_proj
+pruning layer 3 name mlp.down_proj
+pruning layer 3 name self_attn.q_proj
+pruning layer 3 name self_attn.q_proj
+pruning layer 3 name self_attn.k_proj
+pruning layer 3 name self_attn.k_proj
+pruning layer 3 name self_attn.v_proj
+pruning layer 3 name self_attn.v_proj
+pruning layer 3 name self_attn.o_proj
+pruning layer 3 name self_attn.o_proj
+pruning layer 3 name mlp.gate_proj
+pruning layer 3 name mlp.gate_proj
+pruning layer 3 name mlp.up_proj
+pruning layer 3 name mlp.up_proj
+pruning layer 3 name mlp.down_proj
+pruning layer 3 name mlp.down_proj
+pruning layer 3 name self_attn.q_proj
+pruning layer 3 name self_attn.k_proj
+pruning layer 3 name self_attn.v_proj
+pruning layer 3 name self_attn.o_proj
+pruning layer 3 name mlp.gate_proj
+pruning layer 3 name mlp.up_proj
+pruning layer 3 name mlp.down_proj
+pruning layer 4 name self_attn.q_proj
+pruning layer 4 name self_attn.k_proj
+pruning layer 4 name self_attn.v_proj
+pruning layer 4 name self_attn.o_proj
+pruning layer 4 name mlp.gate_proj
+pruning layer 4 name mlp.up_proj
+pruning layer 4 name mlp.down_proj
+pruning layer 4 name self_attn.q_proj
+pruning layer 4 name self_attn.q_proj
+pruning layer 4 name self_attn.k_proj
+pruning layer 4 name self_attn.k_proj
+pruning layer 4 name self_attn.v_proj
+pruning layer 4 name self_attn.v_proj
+pruning layer 4 name self_attn.o_proj
+pruning layer 4 name self_attn.o_proj
+pruning layer 4 name mlp.gate_proj
+pruning layer 4 name mlp.gate_proj
+pruning layer 4 name mlp.up_proj
+pruning layer 4 name mlp.up_proj
+pruning layer 4 name mlp.down_proj
+pruning layer 4 name mlp.down_proj
+pruning layer 4 name self_attn.q_proj
+pruning layer 4 name self_attn.k_proj
+pruning layer 4 name self_attn.v_proj
+pruning layer 4 name self_attn.o_proj
+pruning layer 4 name mlp.gate_proj
+pruning layer 4 name mlp.up_proj
+pruning layer 4 name mlp.down_proj
+pruning layer 5 name self_attn.q_proj
+pruning layer 5 name self_attn.k_proj
+pruning layer 5 name self_attn.v_proj
+pruning layer 5 name self_attn.o_proj
+pruning layer 5 name mlp.gate_proj
+pruning layer 5 name mlp.up_proj
+pruning layer 5 name mlp.down_proj
+pruning layer 5 name self_attn.q_proj
+pruning layer 5 name self_attn.q_proj
+pruning layer 5 name self_attn.k_proj
+pruning layer 5 name self_attn.k_proj
+pruning layer 5 name self_attn.v_proj
+pruning layer 5 name self_attn.v_proj
+pruning layer 5 name self_attn.o_proj
+pruning layer 5 name self_attn.o_proj
+pruning layer 5 name mlp.gate_proj
+pruning layer 5 name mlp.gate_proj
+pruning layer 5 name mlp.up_proj
+pruning layer 5 name mlp.up_proj
+pruning layer 5 name mlp.down_proj
+pruning layer 5 name mlp.down_proj
+pruning layer 5 name self_attn.q_proj
+pruning layer 5 name self_attn.k_proj
+pruning layer 5 name self_attn.v_proj
+pruning layer 5 name self_attn.o_proj
+pruning layer 5 name mlp.gate_proj
+pruning layer 5 name mlp.up_proj
+pruning layer 5 name mlp.down_proj
+pruning layer 6 name self_attn.q_proj
+pruning layer 6 name self_attn.k_proj
+pruning layer 6 name self_attn.v_proj
+pruning layer 6 name self_attn.o_proj
+pruning layer 6 name mlp.gate_proj
+pruning layer 6 name mlp.up_proj
+pruning layer 6 name mlp.down_proj
+pruning layer 6 name self_attn.q_proj
+pruning layer 6 name self_attn.q_proj
+pruning layer 6 name self_attn.k_proj
+pruning layer 6 name self_attn.k_proj
+pruning layer 6 name self_attn.v_proj
+pruning layer 6 name self_attn.v_proj
+pruning layer 6 name self_attn.o_proj
+pruning layer 6 name self_attn.o_proj
+pruning layer 6 name mlp.gate_proj
+pruning layer 6 name mlp.gate_proj
+pruning layer 6 name mlp.up_proj
+pruning layer 6 name mlp.up_proj
+pruning layer 6 name mlp.down_proj
+pruning layer 6 name mlp.down_proj
+pruning layer 7 name self_attn.q_proj
+pruning layer 7 name self_attn.k_proj
+pruning layer 7 name self_attn.v_proj
+pruning layer 7 name self_attn.o_proj
+pruning layer 7 name mlp.gate_proj
+pruning layer 7 name mlp.up_proj
+pruning layer 7 name mlp.down_proj
+pruning layer 6 name self_attn.q_proj
+pruning layer 6 name self_attn.k_proj
+pruning layer 6 name self_attn.v_proj
+pruning layer 6 name self_attn.o_proj
+pruning layer 6 name mlp.gate_proj
+pruning layer 6 name mlp.up_proj
+pruning layer 6 name mlp.down_proj
+pruning layer 8 name self_attn.q_proj
+pruning layer 8 name self_attn.k_proj
+pruning layer 8 name self_attn.v_proj
+pruning layer 8 name self_attn.o_proj
+pruning layer 8 name mlp.gate_proj
+pruning layer 8 name mlp.up_proj
+pruning layer 8 name mlp.down_proj
+pruning layer 7 name self_attn.q_proj
+pruning layer 7 name self_attn.q_proj
+pruning layer 7 name self_attn.k_proj
+pruning layer 7 name self_attn.k_proj
+pruning layer 7 name self_attn.v_proj
+pruning layer 7 name self_attn.v_proj
+pruning layer 7 name self_attn.o_proj
+pruning layer 7 name self_attn.o_proj
+pruning layer 7 name mlp.gate_proj
+pruning layer 7 name mlp.gate_proj
+pruning layer 7 name mlp.up_proj
+pruning layer 7 name mlp.up_proj
+pruning layer 7 name mlp.down_proj
+pruning layer 7 name mlp.down_proj
+pruning layer 7 name self_attn.q_proj
+pruning layer 7 name self_attn.k_proj
+pruning layer 7 name self_attn.v_proj
+pruning layer 7 name self_attn.o_proj
+pruning layer 7 name mlp.gate_proj
+pruning layer 7 name mlp.up_proj
+pruning layer 7 name mlp.down_proj
+pruning layer 9 name self_attn.q_proj
+pruning layer 9 name self_attn.k_proj
+pruning layer 9 name self_attn.v_proj
+pruning layer 9 name self_attn.o_proj
+pruning layer 9 name mlp.gate_proj
+pruning layer 9 name mlp.up_proj
+pruning layer 9 name mlp.down_proj
+pruning layer 8 name self_attn.q_proj
+pruning layer 8 name self_attn.q_proj
+pruning layer 8 name self_attn.k_proj
+pruning layer 8 name self_attn.k_proj
+pruning layer 8 name self_attn.v_proj
+pruning layer 8 name self_attn.v_proj
+pruning layer 8 name self_attn.o_proj
+pruning layer 8 name self_attn.o_proj
+pruning layer 8 name mlp.gate_proj
+pruning layer 8 name mlp.gate_proj
+pruning layer 8 name mlp.up_proj
+pruning layer 8 name mlp.up_proj
+pruning layer 8 name mlp.down_proj
+pruning layer 8 name mlp.down_proj
+pruning layer 8 name self_attn.q_proj
+pruning layer 8 name self_attn.k_proj
+pruning layer 8 name self_attn.v_proj
+pruning layer 8 name self_attn.o_proj
+pruning layer 8 name mlp.gate_proj
+pruning layer 10 name self_attn.q_proj
+pruning layer 8 name mlp.up_proj
+pruning layer 8 name mlp.down_proj
+pruning layer 10 name self_attn.k_proj
+pruning layer 10 name self_attn.v_proj
+pruning layer 10 name self_attn.o_proj
+pruning layer 10 name mlp.gate_proj
+pruning layer 10 name mlp.up_proj
+pruning layer 10 name mlp.down_proj
+pruning layer 9 name self_attn.q_proj
+pruning layer 9 name self_attn.q_proj
+pruning layer 9 name self_attn.k_proj
+pruning layer 9 name self_attn.k_proj
+pruning layer 9 name self_attn.v_proj
+pruning layer 9 name self_attn.v_proj
+pruning layer 9 name self_attn.o_proj
+pruning layer 9 name self_attn.o_proj
+pruning layer 9 name mlp.gate_proj
+pruning layer 9 name mlp.gate_proj
+pruning layer 9 name mlp.up_proj
+pruning layer 9 name mlp.up_proj
+pruning layer 9 name mlp.down_proj
+pruning layer 9 name mlp.down_proj
+pruning layer 9 name self_attn.q_proj
+pruning layer 9 name self_attn.k_proj
+pruning layer 9 name self_attn.v_proj
+pruning layer 9 name self_attn.o_proj
+pruning layer 9 name mlp.gate_proj
+pruning layer 11 name self_attn.q_proj
+pruning layer 9 name mlp.up_proj
+pruning layer 9 name mlp.down_proj
+pruning layer 11 name self_attn.k_proj
+pruning layer 11 name self_attn.v_proj
+pruning layer 11 name self_attn.o_proj
+pruning layer 11 name mlp.gate_proj
+pruning layer 11 name mlp.up_proj
+pruning layer 11 name mlp.down_proj
+pruning layer 10 name self_attn.q_proj
+pruning layer 10 name self_attn.q_proj
+pruning layer 10 name self_attn.k_proj
+pruning layer 10 name self_attn.k_proj
+pruning layer 10 name self_attn.v_proj
+pruning layer 10 name self_attn.v_proj
+pruning layer 10 name self_attn.o_proj
+pruning layer 10 name self_attn.o_proj
+pruning layer 10 name mlp.gate_proj
+pruning layer 10 name mlp.gate_proj
+pruning layer 10 name mlp.up_proj
+pruning layer 10 name mlp.up_proj
+pruning layer 10 name mlp.down_proj
+pruning layer 10 name mlp.down_proj
+pruning layer 10 name self_attn.q_proj
+pruning layer 10 name self_attn.k_proj
+pruning layer 10 name self_attn.v_proj
+pruning layer 10 name self_attn.o_proj
+pruning layer 10 name mlp.gate_proj
+pruning layer 12 name self_attn.q_proj
+pruning layer 10 name mlp.up_proj
+pruning layer 10 name mlp.down_proj
+pruning layer 12 name self_attn.k_proj
+pruning layer 12 name self_attn.v_proj
+pruning layer 12 name self_attn.o_proj
+pruning layer 12 name mlp.gate_proj
+pruning layer 12 name mlp.up_proj
+pruning layer 12 name mlp.down_proj
+pruning layer 11 name self_attn.q_proj
+pruning layer 11 name self_attn.q_proj
+pruning layer 11 name self_attn.k_proj
+pruning layer 11 name self_attn.k_proj
+pruning layer 11 name self_attn.v_proj
+pruning layer 11 name self_attn.v_proj
+pruning layer 11 name self_attn.o_proj
+pruning layer 11 name self_attn.o_proj
+pruning layer 11 name mlp.gate_proj
+pruning layer 11 name mlp.gate_proj
+pruning layer 11 name mlp.up_proj
+pruning layer 11 name mlp.up_proj
+pruning layer 11 name mlp.down_proj
+pruning layer 11 name mlp.down_proj
+pruning layer 11 name self_attn.q_proj
+pruning layer 11 name self_attn.k_proj
+pruning layer 11 name self_attn.v_proj
+pruning layer 11 name self_attn.o_proj
+pruning layer 11 name mlp.gate_proj
+pruning layer 13 name self_attn.q_proj
+pruning layer 11 name mlp.up_proj
+pruning layer 11 name mlp.down_proj
+pruning layer 13 name self_attn.k_proj
+pruning layer 13 name self_attn.v_proj
+pruning layer 13 name self_attn.o_proj
+pruning layer 13 name mlp.gate_proj
+pruning layer 13 name mlp.up_proj
+pruning layer 13 name mlp.down_proj
+pruning layer 12 name self_attn.q_proj
+pruning layer 12 name self_attn.q_proj
+pruning layer 12 name self_attn.k_proj
+pruning layer 12 name self_attn.k_proj
+pruning layer 12 name self_attn.v_proj
+pruning layer 12 name self_attn.v_proj
+pruning layer 12 name self_attn.o_proj
+pruning layer 12 name self_attn.o_proj
+pruning layer 12 name mlp.gate_proj
+pruning layer 12 name mlp.gate_proj
+pruning layer 12 name mlp.up_proj
+pruning layer 12 name mlp.up_proj
+pruning layer 12 name mlp.down_proj
+pruning layer 12 name mlp.down_proj
+pruning layer 12 name self_attn.q_proj
+pruning layer 12 name self_attn.k_proj
+pruning layer 12 name self_attn.v_proj
+pruning layer 12 name self_attn.o_proj
+pruning layer 12 name mlp.gate_proj
+pruning layer 12 name mlp.up_proj
+pruning layer 14 name self_attn.q_proj
+pruning layer 12 name mlp.down_proj
+pruning layer 14 name self_attn.k_proj
+pruning layer 14 name self_attn.v_proj
+pruning layer 14 name self_attn.o_proj
+pruning layer 14 name mlp.gate_proj
+pruning layer 14 name mlp.up_proj
+pruning layer 14 name mlp.down_proj
+pruning layer 13 name self_attn.q_proj
+pruning layer 13 name self_attn.q_proj
+pruning layer 13 name self_attn.k_proj
+pruning layer 13 name self_attn.k_proj
+pruning layer 13 name self_attn.v_proj
+pruning layer 13 name self_attn.v_proj
+pruning layer 13 name self_attn.o_proj
+pruning layer 13 name self_attn.o_proj
+pruning layer 13 name mlp.gate_proj
+pruning layer 13 name mlp.gate_proj
+pruning layer 13 name mlp.up_proj
+pruning layer 13 name mlp.up_proj
+pruning layer 13 name mlp.down_proj
+pruning layer 13 name mlp.down_proj
+pruning layer 13 name self_attn.q_proj
+pruning layer 13 name self_attn.k_proj
+pruning layer 13 name self_attn.v_proj
+pruning layer 13 name self_attn.o_proj
+pruning layer 13 name mlp.gate_proj
+pruning layer 13 name mlp.up_proj
+pruning layer 15 name self_attn.q_proj
+pruning layer 13 name mlp.down_proj
+pruning layer 15 name self_attn.k_proj
+pruning layer 15 name self_attn.v_proj
+pruning layer 15 name self_attn.o_proj
+pruning layer 15 name mlp.gate_proj
+pruning layer 15 name mlp.up_proj
+pruning layer 15 name mlp.down_proj
+pruning layer 14 name self_attn.q_proj
+pruning layer 14 name self_attn.q_proj
+pruning layer 14 name self_attn.k_proj
+pruning layer 14 name self_attn.k_proj
+pruning layer 14 name self_attn.v_proj
+pruning layer 14 name self_attn.v_proj
+pruning layer 14 name self_attn.o_proj
+pruning layer 14 name self_attn.o_proj
+pruning layer 14 name mlp.gate_proj
+pruning layer 14 name mlp.gate_proj
+pruning layer 14 name mlp.up_proj
+pruning layer 14 name mlp.up_proj
+pruning layer 14 name mlp.down_proj
+pruning layer 14 name mlp.down_proj
+pruning layer 16 name self_attn.q_proj
+pruning layer 16 name self_attn.k_proj
+pruning layer 16 name self_attn.v_proj
+pruning layer 16 name self_attn.o_proj
+pruning layer 16 name mlp.gate_proj
+pruning layer 16 name mlp.up_proj
+pruning layer 16 name mlp.down_proj
+pruning layer 14 name self_attn.q_proj
+pruning layer 14 name self_attn.k_proj
+pruning layer 14 name self_attn.v_proj
+pruning layer 14 name self_attn.o_proj
+pruning layer 14 name mlp.gate_proj
+pruning layer 14 name mlp.up_proj
+pruning layer 14 name mlp.down_proj
+pruning layer 17 name self_attn.q_proj
+pruning layer 17 name self_attn.k_proj
+pruning layer 17 name self_attn.v_proj
+pruning layer 17 name self_attn.o_proj
+pruning layer 17 name mlp.gate_proj
+pruning layer 17 name mlp.up_proj
+pruning layer 17 name mlp.down_proj
+pruning layer 18 name self_attn.q_proj
+pruning layer 18 name self_attn.k_proj
+pruning layer 18 name self_attn.v_proj
+pruning layer 18 name self_attn.o_proj
+pruning layer 18 name mlp.gate_proj
+pruning layer 18 name mlp.up_proj
+pruning layer 18 name mlp.down_proj
+pruning layer 15 name self_attn.q_proj
+pruning layer 15 name self_attn.q_proj
+pruning layer 15 name self_attn.k_proj
+pruning layer 15 name self_attn.k_proj
+pruning layer 15 name self_attn.v_proj
+pruning layer 15 name self_attn.v_proj
+pruning layer 15 name self_attn.o_proj
+pruning layer 15 name self_attn.o_proj
+pruning layer 19 name self_attn.q_proj
+pruning layer 15 name mlp.gate_proj
+pruning layer 15 name mlp.gate_proj
+pruning layer 19 name self_attn.k_proj
+pruning layer 15 name mlp.up_proj
+pruning layer 15 name mlp.up_proj
+pruning layer 19 name self_attn.v_proj
+pruning layer 19 name self_attn.o_proj
+pruning layer 19 name mlp.gate_proj
+pruning layer 19 name mlp.up_proj
+pruning layer 19 name mlp.down_proj
+pruning layer 15 name mlp.down_proj
+pruning layer 15 name mlp.down_proj
+pruning layer 15 name self_attn.q_proj
+pruning layer 15 name self_attn.k_proj
+pruning layer 20 name self_attn.q_proj
+pruning layer 15 name self_attn.v_proj
+pruning layer 20 name self_attn.k_proj
+pruning layer 15 name self_attn.o_proj
+pruning layer 20 name self_attn.v_proj
+pruning layer 20 name self_attn.o_proj
+pruning layer 20 name mlp.gate_proj
+pruning layer 15 name mlp.gate_proj
+pruning layer 20 name mlp.up_proj
+pruning layer 20 name mlp.down_proj
+pruning layer 15 name mlp.up_proj
+pruning layer 15 name mlp.down_proj
+pruning layer 21 name self_attn.q_proj
+pruning layer 21 name self_attn.k_proj
+pruning layer 21 name self_attn.v_proj
+pruning layer 21 name self_attn.o_proj
+pruning layer 21 name mlp.gate_proj
+pruning layer 21 name mlp.up_proj
+pruning layer 21 name mlp.down_proj
