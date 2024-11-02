@@ -13,3 +13,8 @@ Show GPU status for every second, so that you can constantly monitor the gpu sta
 ```bash
 srun -p gpucluster nvidia-smi -l 1
 ```
+
+Check Job Status
+```bash
+squeue -u <username>
+```
