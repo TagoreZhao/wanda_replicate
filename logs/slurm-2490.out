@@ -1086,3 +1086,704 @@ pruning layer 21 name self_attn.o_proj
 pruning layer 21 name mlp.gate_proj
 pruning layer 21 name mlp.up_proj
 pruning layer 21 name mlp.down_proj
+pruning layer 16 name self_attn.q_proj
+pruning layer 16 name self_attn.q_proj
+pruning layer 16 name self_attn.k_proj
+pruning layer 16 name self_attn.k_proj
+pruning layer 16 name self_attn.v_proj
+pruning layer 16 name self_attn.v_proj
+pruning layer 16 name self_attn.o_proj
+pruning layer 22 name self_attn.q_proj
+pruning layer 16 name self_attn.o_proj
+pruning layer 16 name mlp.gate_proj
+pruning layer 16 name mlp.gate_proj
+pruning layer 16 name mlp.up_proj
+pruning layer 16 name mlp.up_proj
+pruning layer 16 name mlp.down_proj
+pruning layer 16 name mlp.down_proj
+pruning layer 22 name self_attn.k_proj
+pruning layer 22 name self_attn.v_proj
+pruning layer 22 name self_attn.o_proj
+pruning layer 22 name mlp.gate_proj
+pruning layer 22 name mlp.up_proj
+pruning layer 22 name mlp.down_proj
+pruning layer 16 name self_attn.q_proj
+pruning layer 16 name self_attn.k_proj
+pruning layer 16 name self_attn.v_proj
+pruning layer 16 name self_attn.o_proj
+pruning layer 16 name mlp.gate_proj
+pruning layer 16 name mlp.up_proj
+pruning layer 16 name mlp.down_proj
+pruning layer 17 name self_attn.q_proj
+pruning layer 17 name self_attn.q_proj
+pruning layer 23 name self_attn.q_proj
+pruning layer 17 name self_attn.k_proj
+pruning layer 17 name self_attn.k_proj
+pruning layer 17 name self_attn.v_proj
+pruning layer 17 name self_attn.v_proj
+pruning layer 17 name self_attn.o_proj
+pruning layer 17 name self_attn.o_proj
+pruning layer 17 name mlp.gate_proj
+pruning layer 17 name mlp.gate_proj
+pruning layer 17 name mlp.up_proj
+pruning layer 17 name mlp.up_proj
+pruning layer 23 name self_attn.k_proj
+pruning layer 23 name self_attn.v_proj
+pruning layer 17 name mlp.down_proj
+pruning layer 17 name mlp.down_proj
+pruning layer 23 name self_attn.o_proj
+pruning layer 23 name mlp.gate_proj
+pruning layer 23 name mlp.up_proj
+pruning layer 23 name mlp.down_proj
+pruning layer 17 name self_attn.q_proj
+pruning layer 17 name self_attn.k_proj
+pruning layer 17 name self_attn.v_proj
+pruning layer 17 name self_attn.o_proj
+pruning layer 17 name mlp.gate_proj
+pruning layer 17 name mlp.up_proj
+pruning layer 17 name mlp.down_proj
+pruning layer 18 name self_attn.q_proj
+pruning layer 18 name self_attn.q_proj
+pruning layer 24 name self_attn.q_proj
+pruning layer 18 name self_attn.k_proj
+pruning layer 18 name self_attn.k_proj
+pruning layer 18 name self_attn.v_proj
+pruning layer 18 name self_attn.v_proj
+pruning layer 18 name self_attn.o_proj
+pruning layer 18 name self_attn.o_proj
+pruning layer 18 name mlp.gate_proj
+pruning layer 18 name mlp.gate_proj
+pruning layer 18 name mlp.up_proj
+pruning layer 18 name mlp.up_proj
+pruning layer 24 name self_attn.k_proj
+pruning layer 24 name self_attn.v_proj
+pruning layer 18 name mlp.down_proj
+pruning layer 18 name mlp.down_proj
+pruning layer 24 name self_attn.o_proj
+pruning layer 24 name mlp.gate_proj
+pruning layer 24 name mlp.up_proj
+pruning layer 24 name mlp.down_proj
+pruning layer 18 name self_attn.q_proj
+pruning layer 18 name self_attn.k_proj
+pruning layer 18 name self_attn.v_proj
+pruning layer 18 name self_attn.o_proj
+pruning layer 18 name mlp.gate_proj
+pruning layer 18 name mlp.up_proj
+pruning layer 18 name mlp.down_proj
+pruning layer 25 name self_attn.q_proj
+pruning layer 25 name self_attn.k_proj
+pruning layer 25 name self_attn.v_proj
+pruning layer 25 name self_attn.o_proj
+pruning layer 25 name mlp.gate_proj
+pruning layer 25 name mlp.up_proj
+pruning layer 25 name mlp.down_proj
+pruning layer 19 name self_attn.q_proj
+pruning layer 19 name self_attn.q_proj
+pruning layer 26 name self_attn.q_proj
+pruning layer 19 name self_attn.k_proj
+pruning layer 19 name self_attn.k_proj
+pruning layer 26 name self_attn.k_proj
+pruning layer 26 name self_attn.v_proj
+pruning layer 19 name self_attn.v_proj
+pruning layer 26 name self_attn.o_proj
+pruning layer 19 name self_attn.v_proj
+pruning layer 26 name mlp.gate_proj
+pruning layer 26 name mlp.up_proj
+pruning layer 19 name self_attn.o_proj
+pruning layer 26 name mlp.down_proj
+pruning layer 19 name self_attn.o_proj
+pruning layer 19 name mlp.gate_proj
+pruning layer 19 name mlp.gate_proj
+pruning layer 19 name mlp.up_proj
+pruning layer 19 name mlp.up_proj
+pruning layer 19 name mlp.down_proj
+pruning layer 19 name mlp.down_proj
+pruning layer 19 name self_attn.q_proj
+pruning layer 19 name self_attn.k_proj
+pruning layer 19 name self_attn.v_proj
+pruning layer 19 name self_attn.o_proj
+pruning layer 19 name mlp.gate_proj
+pruning layer 19 name mlp.up_proj
+pruning layer 27 name self_attn.q_proj
+pruning layer 19 name mlp.down_proj
+pruning layer 27 name self_attn.k_proj
+pruning layer 27 name self_attn.v_proj
+pruning layer 27 name self_attn.o_proj
+pruning layer 27 name mlp.gate_proj
+pruning layer 27 name mlp.up_proj
+pruning layer 27 name mlp.down_proj
+pruning layer 28 name self_attn.q_proj
+pruning layer 28 name self_attn.k_proj
+pruning layer 28 name self_attn.v_proj
+pruning layer 28 name self_attn.o_proj
+pruning layer 28 name mlp.gate_proj
+pruning layer 28 name mlp.up_proj
+pruning layer 28 name mlp.down_proj
+pruning layer 29 name self_attn.q_proj
+pruning layer 29 name self_attn.k_proj
+pruning layer 29 name self_attn.v_proj
+pruning layer 29 name self_attn.o_proj
+pruning layer 29 name mlp.gate_proj
+pruning layer 29 name mlp.up_proj
+pruning layer 29 name mlp.down_proj
+pruning layer 20 name self_attn.q_proj
+pruning layer 20 name self_attn.q_proj
+pruning layer 20 name self_attn.k_proj
+pruning layer 20 name self_attn.k_proj
+pruning layer 20 name self_attn.v_proj
+pruning layer 20 name self_attn.v_proj
+pruning layer 20 name self_attn.o_proj
+pruning layer 20 name self_attn.o_proj
+pruning layer 20 name mlp.gate_proj
+pruning layer 20 name mlp.gate_proj
+pruning layer 20 name mlp.up_proj
+pruning layer 20 name mlp.up_proj
+pruning layer 20 name mlp.down_proj
+pruning layer 20 name mlp.down_proj
+pruning layer 30 name self_attn.q_proj
+pruning layer 30 name self_attn.k_proj
+pruning layer 30 name self_attn.v_proj
+pruning layer 30 name self_attn.o_proj
+pruning layer 30 name mlp.gate_proj
+pruning layer 30 name mlp.up_proj
+pruning layer 30 name mlp.down_proj
+pruning layer 20 name self_attn.q_proj
+pruning layer 20 name self_attn.k_proj
+pruning layer 20 name self_attn.v_proj
+pruning layer 20 name self_attn.o_proj
+pruning layer 20 name mlp.gate_proj
+pruning layer 20 name mlp.up_proj
+pruning layer 20 name mlp.down_proj
+pruning layer 31 name self_attn.q_proj
+pruning layer 31 name self_attn.k_proj
+pruning layer 31 name self_attn.v_proj
+pruning layer 31 name self_attn.o_proj
+pruning layer 31 name mlp.gate_proj
+pruning layer 31 name mlp.up_proj
+pruning layer 31 name mlp.down_proj
+******************************
+layer 0 sparsity 0.500000
+layer 1 sparsity 0.500000
+layer 2 sparsity 0.500000
+layer 3 sparsity 0.500000
+layer 4 sparsity 0.500000
+layer 5 sparsity 0.500000
+layer 6 sparsity 0.500000
+layer 7 sparsity 0.500000
+layer 8 sparsity 0.500000
+layer 9 sparsity 0.500000
+layer 10 sparsity 0.500000
+layer 11 sparsity 0.500000
+layer 12 sparsity 0.500000
+layer 13 sparsity 0.500000
+layer 14 sparsity 0.500000
+layer 15 sparsity 0.500000
+layer 16 sparsity 0.500000
+layer 17 sparsity 0.500000
+layer 18 sparsity 0.500000
+layer 19 sparsity 0.500000
+layer 20 sparsity 0.500000
+layer 21 sparsity 0.500000
+layer 22 sparsity 0.500000
+layer 23 sparsity 0.500000
+layer 24 sparsity 0.500000
+layer 25 sparsity 0.500000
+layer 26 sparsity 0.500000
+layer 27 sparsity 0.500000
+layer 28 sparsity 0.500000
+layer 29 sparsity 0.500000
+layer 30 sparsity 0.500000
+layer 31 sparsity 0.500000
+sparsity sanity check 0.5000
+******************************
+evaluating on wikitext2
+pruning layer 21 name self_attn.q_proj
+pruning layer 21 name self_attn.q_proj
+pruning layer 21 name self_attn.k_proj
+pruning layer 21 name self_attn.k_proj
+pruning layer 21 name self_attn.v_proj
+pruning layer 21 name self_attn.v_proj
+pruning layer 21 name self_attn.o_proj
+pruning layer 21 name self_attn.o_proj
+pruning layer 21 name mlp.gate_proj
+pruning layer 21 name mlp.gate_proj
+pruning layer 21 name mlp.up_proj
+pruning layer 21 name mlp.up_proj
+pruning layer 21 name mlp.down_proj
+pruning layer 21 name mlp.down_proj
+pruning layer 21 name self_attn.q_proj
+pruning layer 21 name self_attn.k_proj
+pruning layer 21 name self_attn.v_proj
+pruning layer 21 name self_attn.o_proj
+pruning layer 21 name mlp.gate_proj
+pruning layer 21 name mlp.up_proj
+pruning layer 21 name mlp.down_proj
+nsamples 83
+sample 0
+pruning layer 22 name self_attn.q_proj
+pruning layer 22 name self_attn.q_proj
+pruning layer 22 name self_attn.k_proj
+pruning layer 22 name self_attn.k_proj
+pruning layer 22 name self_attn.v_proj
+pruning layer 22 name self_attn.v_proj
+pruning layer 22 name self_attn.o_proj
+pruning layer 22 name self_attn.o_proj
+pruning layer 22 name mlp.gate_proj
+pruning layer 22 name mlp.gate_proj
+pruning layer 22 name mlp.up_proj
+pruning layer 22 name mlp.up_proj
+pruning layer 22 name mlp.down_proj
+pruning layer 22 name mlp.down_proj
+pruning layer 22 name self_attn.q_proj
+pruning layer 22 name self_attn.k_proj
+pruning layer 22 name self_attn.v_proj
+pruning layer 22 name self_attn.o_proj
+pruning layer 22 name mlp.gate_proj
+pruning layer 22 name mlp.up_proj
+pruning layer 22 name mlp.down_proj
+pruning layer 23 name self_attn.q_proj
+pruning layer 23 name self_attn.q_proj
+pruning layer 23 name self_attn.k_proj
+pruning layer 23 name self_attn.k_proj
+pruning layer 23 name self_attn.v_proj
+pruning layer 23 name self_attn.v_proj
+pruning layer 23 name self_attn.o_proj
+pruning layer 23 name self_attn.o_proj
+pruning layer 23 name mlp.gate_proj
+pruning layer 23 name mlp.gate_proj
+pruning layer 23 name mlp.up_proj
+pruning layer 23 name mlp.up_proj
+pruning layer 23 name mlp.down_proj
+pruning layer 23 name mlp.down_proj
+pruning layer 23 name self_attn.q_proj
+pruning layer 23 name self_attn.k_proj
+pruning layer 23 name self_attn.v_proj
+pruning layer 23 name self_attn.o_proj
+pruning layer 23 name mlp.gate_proj
+pruning layer 23 name mlp.up_proj
+pruning layer 23 name mlp.down_proj
+pruning layer 24 name self_attn.q_proj
+pruning layer 24 name self_attn.q_proj
+pruning layer 24 name self_attn.k_proj
+pruning layer 24 name self_attn.k_proj
+pruning layer 24 name self_attn.v_proj
+pruning layer 24 name self_attn.v_proj
+pruning layer 24 name self_attn.o_proj
+pruning layer 24 name self_attn.o_proj
+pruning layer 24 name mlp.gate_proj
+pruning layer 24 name mlp.gate_proj
+pruning layer 24 name mlp.up_proj
+pruning layer 24 name mlp.up_proj
+pruning layer 24 name mlp.down_proj
+pruning layer 24 name mlp.down_proj
+pruning layer 24 name self_attn.q_proj
+pruning layer 24 name self_attn.k_proj
+pruning layer 24 name self_attn.v_proj
+pruning layer 24 name self_attn.o_proj
+pruning layer 24 name mlp.gate_proj
+pruning layer 24 name mlp.up_proj
+pruning layer 24 name mlp.down_proj
+pruning layer 25 name self_attn.q_proj
+pruning layer 25 name self_attn.q_proj
+pruning layer 25 name self_attn.k_proj
+pruning layer 25 name self_attn.v_proj
+sample 50
+pruning layer 25 name self_attn.k_proj
+pruning layer 25 name self_attn.o_proj
+pruning layer 25 name self_attn.v_proj
+pruning layer 25 name mlp.gate_proj
+pruning layer 25 name self_attn.o_proj
+pruning layer 25 name mlp.up_proj
+pruning layer 25 name mlp.gate_proj
+pruning layer 25 name mlp.down_proj
+pruning layer 25 name mlp.up_proj
+pruning layer 25 name mlp.down_proj
+pruning layer 25 name self_attn.q_proj
+pruning layer 25 name self_attn.k_proj
+pruning layer 25 name self_attn.v_proj
+pruning layer 25 name self_attn.o_proj
+pruning layer 25 name mlp.gate_proj
+pruning layer 25 name mlp.up_proj
+pruning layer 25 name mlp.down_proj
+pruning layer 26 name self_attn.q_proj
+pruning layer 26 name self_attn.q_proj
+pruning layer 26 name self_attn.k_proj
+pruning layer 26 name self_attn.v_proj
+pruning layer 26 name self_attn.k_proj
+pruning layer 26 name self_attn.o_proj
+pruning layer 26 name self_attn.v_proj
+pruning layer 26 name mlp.gate_proj
+pruning layer 26 name self_attn.o_proj
+pruning layer 26 name mlp.up_proj
+pruning layer 26 name mlp.gate_proj
+pruning layer 26 name mlp.down_proj
+pruning layer 26 name mlp.up_proj
+pruning layer 26 name mlp.down_proj
+pruning layer 26 name self_attn.q_proj
+pruning layer 26 name self_attn.k_proj
+pruning layer 26 name self_attn.v_proj
+pruning layer 26 name self_attn.o_proj
+pruning layer 26 name mlp.gate_proj
+pruning layer 26 name mlp.up_proj
+pruning layer 26 name mlp.down_proj
+pruning layer 27 name self_attn.q_proj
+pruning layer 27 name self_attn.q_proj
+pruning layer 27 name self_attn.k_proj
+pruning layer 27 name self_attn.v_proj
+wikitext perplexity 12.43095874786377
+pruning layer 27 name self_attn.o_proj
+pruning layer 27 name self_attn.k_proj
+pruning layer 27 name mlp.gate_proj
+pruning layer 27 name self_attn.v_proj
+pruning layer 27 name self_attn.o_proj
+pruning layer 27 name mlp.up_proj
+pruning layer 27 name mlp.gate_proj
+pruning layer 27 name mlp.down_proj
+pruning layer 27 name mlp.up_proj
+pruning layer 27 name mlp.down_proj
+pruning layer 27 name self_attn.q_proj
+pruning layer 27 name self_attn.k_proj
+pruning layer 27 name self_attn.v_proj
+pruning layer 27 name self_attn.o_proj
+pruning layer 27 name mlp.gate_proj
+pruning layer 27 name mlp.up_proj
+pruning layer 27 name mlp.down_proj
+pruning layer 28 name self_attn.q_proj
+pruning layer 28 name self_attn.q_proj
+pruning layer 28 name self_attn.k_proj
+pruning layer 28 name self_attn.v_proj
+pruning layer 28 name self_attn.o_proj
+pruning layer 28 name self_attn.k_proj
+pruning layer 28 name mlp.gate_proj
+pruning layer 28 name self_attn.v_proj
+pruning layer 28 name mlp.up_proj
+pruning layer 28 name self_attn.o_proj
+pruning layer 28 name mlp.gate_proj
+pruning layer 28 name mlp.down_proj
+pruning layer 28 name mlp.up_proj
+pruning layer 28 name mlp.down_proj
+pruning layer 28 name self_attn.q_proj
+pruning layer 28 name self_attn.k_proj
+pruning layer 28 name self_attn.v_proj
+pruning layer 28 name self_attn.o_proj
+pruning layer 28 name mlp.gate_proj
+pruning layer 28 name mlp.up_proj
+pruning layer 28 name mlp.down_proj
+pruning layer 29 name self_attn.q_proj
+pruning layer 29 name self_attn.q_proj
+pruning layer 29 name self_attn.k_proj
+pruning layer 29 name self_attn.v_proj
+pruning layer 29 name self_attn.o_proj
+pruning layer 29 name self_attn.k_proj
+pruning layer 29 name mlp.gate_proj
+pruning layer 29 name self_attn.v_proj
+pruning layer 29 name mlp.up_proj
+pruning layer 29 name self_attn.o_proj
+pruning layer 29 name mlp.gate_proj
+pruning layer 29 name mlp.down_proj
+pruning layer 29 name mlp.up_proj
+pruning layer 29 name mlp.down_proj
+pruning layer 29 name self_attn.q_proj
+pruning layer 29 name self_attn.k_proj
+pruning layer 29 name self_attn.v_proj
+pruning layer 29 name self_attn.o_proj
+pruning layer 29 name mlp.gate_proj
+pruning layer 29 name mlp.up_proj
+pruning layer 29 name mlp.down_proj
+pruning layer 30 name self_attn.q_proj
+pruning layer 30 name self_attn.q_proj
+pruning layer 30 name self_attn.k_proj
+pruning layer 30 name self_attn.v_proj
+pruning layer 30 name self_attn.o_proj
+pruning layer 30 name mlp.gate_proj
+pruning layer 30 name self_attn.k_proj
+pruning layer 30 name self_attn.v_proj
+pruning layer 30 name mlp.up_proj
+pruning layer 30 name self_attn.o_proj
+pruning layer 30 name mlp.down_proj
+pruning layer 30 name mlp.gate_proj
+pruning layer 30 name mlp.up_proj
+pruning layer 30 name mlp.down_proj
+pruning layer 30 name self_attn.q_proj
+pruning layer 30 name self_attn.k_proj
+pruning layer 30 name self_attn.v_proj
+pruning layer 30 name self_attn.o_proj
+pruning layer 30 name mlp.gate_proj
+pruning layer 30 name mlp.up_proj
+pruning layer 30 name mlp.down_proj
+pruning layer 31 name self_attn.q_proj
+pruning layer 31 name self_attn.q_proj
+pruning layer 31 name self_attn.k_proj
+pruning layer 31 name self_attn.v_proj
+pruning layer 31 name self_attn.o_proj
+pruning layer 31 name mlp.gate_proj
+pruning layer 31 name self_attn.k_proj
+pruning layer 31 name mlp.up_proj
+pruning layer 31 name self_attn.v_proj
+pruning layer 31 name self_attn.o_proj
+pruning layer 31 name mlp.down_proj
+pruning layer 31 name mlp.gate_proj
+pruning layer 31 name mlp.up_proj
+pruning layer 31 name mlp.down_proj
+pruning layer 31 name self_attn.q_proj
+pruning layer 31 name self_attn.k_proj
+pruning layer 31 name self_attn.v_proj
+pruning layer 31 name self_attn.o_proj
+pruning layer 31 name mlp.gate_proj
+pruning layer 31 name mlp.up_proj
+pruning layer 31 name mlp.down_proj
+******************************
+******************************
+layer 0 sparsity 0.500000
+layer 0 sparsity 0.500000
+layer 1 sparsity 0.500000
+layer 1 sparsity 0.500000
+layer 2 sparsity 0.500000
+layer 2 sparsity 0.500000
+layer 3 sparsity 0.500000
+layer 3 sparsity 0.500000
+layer 4 sparsity 0.500000
+layer 4 sparsity 0.500000
+layer 5 sparsity 0.500000
+layer 5 sparsity 0.500000
+layer 6 sparsity 0.500000
+layer 6 sparsity 0.500000
+layer 7 sparsity 0.500000
+layer 7 sparsity 0.500000
+layer 8 sparsity 0.500000
+layer 8 sparsity 0.500000
+layer 9 sparsity 0.500000
+layer 9 sparsity 0.500000
+layer 10 sparsity 0.500000
+layer 10 sparsity 0.500000
+layer 11 sparsity 0.500000
+layer 11 sparsity 0.500000
+layer 12 sparsity 0.500000
+layer 12 sparsity 0.500000
+layer 13 sparsity 0.500000
+layer 13 sparsity 0.500000
+layer 14 sparsity 0.500000
+layer 14 sparsity 0.500000
+layer 15 sparsity 0.500000
+layer 15 sparsity 0.500000
+layer 16 sparsity 0.500000
+layer 16 sparsity 0.500000
+layer 17 sparsity 0.500000
+layer 17 sparsity 0.500000
+layer 18 sparsity 0.500000
+layer 18 sparsity 0.500000
+layer 19 sparsity 0.500000
+layer 19 sparsity 0.500000
+layer 20 sparsity 0.500000
+layer 20 sparsity 0.500000
+layer 21 sparsity 0.500000
+layer 21 sparsity 0.500000
+layer 22 sparsity 0.500000
+layer 22 sparsity 0.500000
+layer 23 sparsity 0.500000
+layer 23 sparsity 0.500000
+layer 24 sparsity 0.500000
+layer 24 sparsity 0.500000
+******************************
+layer 25 sparsity 0.500000
+layer 0 sparsity 0.500000
+layer 25 sparsity 0.500000
+layer 1 sparsity 0.500000
+layer 2 sparsity 0.500000
+layer 26 sparsity 0.500000
+layer 3 sparsity 0.500000
+layer 26 sparsity 0.500000
+layer 4 sparsity 0.500000
+layer 5 sparsity 0.500000
+layer 27 sparsity 0.500000
+layer 27 sparsity 0.500000
+layer 6 sparsity 0.500000
+layer 7 sparsity 0.500000
+layer 28 sparsity 0.500000
+layer 8 sparsity 0.500000
+layer 28 sparsity 0.500000
+layer 9 sparsity 0.500000
+layer 29 sparsity 0.500000
+layer 10 sparsity 0.500000
+layer 29 sparsity 0.500000
+layer 11 sparsity 0.500000
+layer 12 sparsity 0.500000
+layer 30 sparsity 0.500000
+layer 13 sparsity 0.500000
+layer 30 sparsity 0.500000
+layer 14 sparsity 0.500000
+layer 15 sparsity 0.500000
+layer 31 sparsity 0.500000
+sparsity sanity check 0.5000
+******************************
+evaluating on wikitext2
+layer 31 sparsity 0.500000
+sparsity sanity check 0.5000
+******************************
+evaluating on wikitext2
+layer 16 sparsity 0.500000
+layer 17 sparsity 0.500000
+layer 18 sparsity 0.500000
+layer 19 sparsity 0.500000
+layer 20 sparsity 0.500000
+layer 21 sparsity 0.500000
+layer 22 sparsity 0.500000
+layer 23 sparsity 0.500000
+layer 24 sparsity 0.500000
+layer 25 sparsity 0.500000
+layer 26 sparsity 0.500000
+layer 27 sparsity 0.500000
+layer 28 sparsity 0.500000
+layer 29 sparsity 0.500000
+layer 30 sparsity 0.500000
+layer 31 sparsity 0.500000
+sparsity sanity check 0.5000
+******************************
+evaluating on wikitext2
+nsamples 83
+sample 0
+nsamples 83
+sample 0
+nsamples 83
+sample 0
+sample 50
+sample 50
+sample 50
+wikitext perplexity 12.43095874786377
+wikitext perplexity 12.43095874786377
+wikitext perplexity 12.43095874786377
+ERROR:torch.distributed.elastic.multiprocessing.errors.error_handler:{
+  "message": {
+    "message": "RendezvousClosedError: ",
+    "extraInfo": {
+      "py_callstack": "Traceback (most recent call last):\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py\", line 345, in wrapper\n    return f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 719, in main\n    run(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 710, in run\n    elastic_launch(\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py\", line 131, in __call__\n    return launch_agent(self._config, self._entrypoint, list(args))\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py\", line 252, in launch_agent\n    result = agent.run()\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py\", line 125, in wrapper\n    result = f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 709, in run\n    result = self._invoke_run(role)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 837, in _invoke_run\n    self._initialize_workers(self._worker_group)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py\", line 125, in wrapper\n    result = f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 678, in _initialize_workers\n    self._rendezvous(worker_group)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py\", line 125, in wrapper\n    result = f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 538, in _rendezvous\n    store, group_rank, group_world_size = spec.rdzv_handler.next_rendezvous()\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py\", line 1024, in next_rendezvous\n    self._op_executor.run(join_op, deadline)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py\", line 634, in run\n    raise RendezvousClosedError()\ntorch.distributed.elastic.rendezvous.api.RendezvousClosedError\n",
+      "timestamp": "1730506638"
+    }
+  }
+}
+Traceback (most recent call last):
+  File "/Users/918839576/miniconda3/envs/prune_llm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==1.10.1', 'console_scripts', 'torchrun')())
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 719, in main
+    run(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 710, in run
+    elastic_launch(
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 252, in launch_agent
+    result = agent.run()
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    result = f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 709, in run
+    result = self._invoke_run(role)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 837, in _invoke_run
+    self._initialize_workers(self._worker_group)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    result = f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 678, in _initialize_workers
+    self._rendezvous(worker_group)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    result = f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 538, in _rendezvous
+    store, group_rank, group_world_size = spec.rdzv_handler.next_rendezvous()
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 1024, in next_rendezvous
+    self._op_executor.run(join_op, deadline)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 634, in run
+    raise RendezvousClosedError()
+torch.distributed.elastic.rendezvous.api.RendezvousClosedError
+ERROR:torch.distributed.elastic.multiprocessing.errors.error_handler:{
+  "message": {
+    "message": "RendezvousClosedError: ",
+    "extraInfo": {
+      "py_callstack": "Traceback (most recent call last):\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py\", line 345, in wrapper\n    return f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 719, in main\n    run(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 710, in run\n    elastic_launch(\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py\", line 131, in __call__\n    return launch_agent(self._config, self._entrypoint, list(args))\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py\", line 252, in launch_agent\n    result = agent.run()\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py\", line 125, in wrapper\n    result = f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 709, in run\n    result = self._invoke_run(role)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 837, in _invoke_run\n    self._initialize_workers(self._worker_group)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py\", line 125, in wrapper\n    result = f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 678, in _initialize_workers\n    self._rendezvous(worker_group)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py\", line 125, in wrapper\n    result = f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 538, in _rendezvous\n    store, group_rank, group_world_size = spec.rdzv_handler.next_rendezvous()\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py\", line 1024, in next_rendezvous\n    self._op_executor.run(join_op, deadline)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py\", line 634, in run\n    raise RendezvousClosedError()\ntorch.distributed.elastic.rendezvous.api.RendezvousClosedError\n",
+      "timestamp": "1730506638"
+    }
+  }
+}
+Traceback (most recent call last):
+  File "/Users/918839576/miniconda3/envs/prune_llm/bin/torchrun", line 33, in <module>
+    sys.exit(load_entry_point('torch==1.10.1', 'console_scripts', 'torchrun')())
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    return f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 719, in main
+    run(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 710, in run
+ERROR:torch.distributed.elastic.multiprocessing.errors.error_handler:{
+  "message": {
+    "message": "RendezvousClosedError: ",
+    "extraInfo": {
+      "py_callstack": "Traceback (most recent call last):\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py\", line 345, in wrapper\n    return f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 719, in main\n    run(args)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py\", line 710, in run\n    elastic_launch(\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py\", line 131, in __call__\n    return launch_agent(self._config, self._entrypoint, list(args))\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py\", line 252, in launch_agent\n    result = agent.run()\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py\", line 125, in wrapper\n    result = f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 709, in run\n    result = self._invoke_run(role)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 837, in _invoke_run\n    self._initialize_workers(self._worker_group)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py\", line 125, in wrapper\n    result = f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 678, in _initialize_workers\n    self._rendezvous(worker_group)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py\", line 125, in wrapper\n    result = f(*args, **kwargs)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py\", line 538, in _rendezvous\n    store, group_rank, group_world_size = spec.rdzv_handler.next_rendezvous()\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py\", line 1024, in next_rendezvous\n    self._op_executor.run(join_op, deadline)\n  File \"/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py\", line 634, in run\n    raise RendezvousClosedError()\ntorch.distributed.elastic.rendezvous.api.RendezvousClosedError\n",
+      "timestamp": "1730506638"
+    }
+  }
+}
+Traceback (most recent call last):
+  File "/Users/918839576/miniconda3/envs/prune_llm/bin/torchrun", line 33, in <module>
+    elastic_launch(
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    sys.exit(load_entry_point('torch==1.10.1', 'console_scripts', 'torchrun')())
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/multiprocessing/errors/__init__.py", line 345, in wrapper
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 252, in launch_agent
+    return f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 719, in main
+    result = agent.run()
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    result = f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 709, in run
+    run(args)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/run.py", line 710, in run
+    result = self._invoke_run(role)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 837, in _invoke_run
+    elastic_launch(
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 131, in __call__
+    self._initialize_workers(self._worker_group)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    return launch_agent(self._config, self._entrypoint, list(args))
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/launcher/api.py", line 252, in launch_agent
+    result = f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 678, in _initialize_workers
+    result = agent.run()
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    self._rendezvous(worker_group)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    result = f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 709, in run
+    result = f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 538, in _rendezvous
+    result = self._invoke_run(role)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 837, in _invoke_run
+    store, group_rank, group_world_size = spec.rdzv_handler.next_rendezvous()
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 1024, in next_rendezvous
+    self._initialize_workers(self._worker_group)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    result = f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 678, in _initialize_workers
+    self._op_executor.run(join_op, deadline)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 634, in run
+    self._rendezvous(worker_group)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/metrics/api.py", line 125, in wrapper
+    raise RendezvousClosedError()
+torch.distributed.elastic.rendezvous.api.RendezvousClosedError
+    result = f(*args, **kwargs)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/agent/server/api.py", line 538, in _rendezvous
+    store, group_rank, group_world_size = spec.rdzv_handler.next_rendezvous()
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 1024, in next_rendezvous
+    self._op_executor.run(join_op, deadline)
+  File "/Users/918839576/miniconda3/envs/prune_llm/lib/python3.9/site-packages/torch/distributed/elastic/rendezvous/dynamic_rendezvous.py", line 634, in run
+    raise RendezvousClosedError()
+torch.distributed.elastic.rendezvous.api.RendezvousClosedError
+--------------------------------------------------------------------------
+Primary job  terminated normally, but 1 process returned
+a non-zero exit code. Per user-direction, the job has been aborted.
+--------------------------------------------------------------------------
+--------------------------------------------------------------------------
+mpirun detected that one or more processes exited with non-zero status, thus causing
+the job to be terminated. The first process to do so was:
+
+  Process name: [[36012,1],2]
+  Exit code:    1
+--------------------------------------------------------------------------
+Finished wanda pruning with MPI on a single node
