@@ -5,35 +5,27 @@
 #SBATCH --job-name=llama2-pruning
 #SBATCH --output=logs/slurm-%j.out
 #SBATCH --nodes=1
-#SBATCH --cpus-per-task=4    # Allocate 4 CPU cores per GPU task
+#SBATCH --ntasks=4
+#SBATCH --cpus-per-task=4  # Allocate 4 CPU cores per task
 
 module load mpi/openmpi-x86_64
 
-# Detect the available GPUs
+# Detect available GPUs
 available_gpus=$(nvidia-smi --query-gpu=index --format=csv,noheader | wc -l)
+export CUDA_VISIBLE_DEVICES=$(seq -s "," 0 $((available_gpus - 1)))
 
-# Adjust process count to match available GPUs
-if [ "$available_gpus" -gt 4 ]; then
-  num_processes=4
-elif [ "$available_gpus" -gt 0 ]; then
-  num_processes=$available_gpus
-else
-  echo "No GPUs available."
-  exit 1
-fi
-
-# Common variables
+# Set common variables
 model="meta-llama/Llama-2-7b-chat-hf"
 sparsity_ratio=0.5
 export MASTER_PORT=$((12000 + RANDOM % 1000))  # Unique port for each job
 export OMP_NUM_THREADS=1
 
-# Run pruning with torchrun
-echo "Running wanda pruning with MPI on a single node with $num_processes GPUs"
+echo "Running wanda pruning with MPI on $available_gpus available GPUs"
 
-mpirun -np $num_processes torchrun \
-    --nproc_per_node $num_processes \
-    --rdzv_conf join_timeout=50000 \
+# Run pruning with torchrun
+mpirun --oversubscribe -np $available_gpus torchrun \
+    --nproc_per_node=$available_gpus \
+    --rdzv_conf join_timeout=100000 \
     --max_restarts 5 \
     --rdzv_backend c10d \
     --rdzv_endpoint localhost:${MASTER_PORT} \
@@ -45,7 +37,5 @@ mpirun -np $num_processes torchrun \
     --save "out/llama_7b/2-4/wanda/"
 
 wait
-
-echo "Finished wanda pruning with MPI on a single node"
-# Explicitly exit
+echo "Finished wanda pruning with MPI on $available_gpus GPUs"
 exit 0

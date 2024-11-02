@@ -8,8 +8,8 @@ from importlib.metadata import version
 from lib.prune import prune_wanda, prune_magnitude, prune_sparsegpt, prune_ablate, check_sparsity, find_layers
 from lib.eval import eval_ppl, eval_zero_shot
 
-# import torch.distributed as dist
-# dist.init_process_group(backend="gloo|nccl")
+import torch.distributed as dist
+dist.init_process_group(backend="nccl")
 
 print('torch', version('torch'))
 print('transformers', version('transformers'))

@@ -22,9 +22,8 @@ torchrun --nproc_per_node=4 main.py \
     --prune_method "wanda" \
     --sparsity_ratio $sparsity_ratio \
     --sparsity_type "unstructured" \
-    --save "out/llama_7b/unstructured/wanda/"
-
-wait
+    --save "out/llama_7b/unstructured/wanda/" \
+    --eval_zero_shot
 
 echo "Finished wanda pruning"
 # Explicitly exit
