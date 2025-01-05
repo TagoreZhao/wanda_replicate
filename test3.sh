@@ -8,7 +8,7 @@
 #SBATCH --cpus-per-task=4    # Allocate 4 CPU cores per GPU task
 
 # Set common variables
-model="meta-llama/Llama-2-7b-chat-hf"
+model="meta-llama/Llama-2-7b-hf"
 sparsity_ratio=0.5
 
 # Set CUDA device visibility to use all available GPUs
